@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>ARCH_SYS // Structural Wireframe Company Profile</title>
+  
+  <!-- Google Fonts: Inter for UI, Courier Prime for Mono labels -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Courier+Prime&display=swap" rel="stylesheet"/>
+  
+  <!-- Material Symbols for Wireframe Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet" />
+  
+  <link href="./style.css" rel="stylesheet"/>
+  <style>
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body class="bg-dot-matrix">
+
+  <!-- Diagnostic Page Transition Loader -->
+  <div id="page-loader" class="page-loader">
+    <span class="material-symbols-outlined" style="font-size: 36px; animation: spin 1s linear infinite; color: var(--accent);">progress_activity</span>
+    <div style="font-weight: 700; letter-spacing: 0.1em;">COMPILING_ASSETS // INDEXING_NODES</div>
+    <div class="loader-bar-outer">
+      <div class="loader-bar-inner" id="loader-bar-inner"></div>
+    </div>
+    <div id="loader-log" class="font-mono" style="color: var(--secondary); font-size: 10px; max-width: 320px; text-align: center; height: 15px;">ALLOCATING_MEM...</div>
+  </div>
+
+  <!-- Top Navigation Bar -->
+  <header>
+    <div style="display: flex; align-items: center; gap: var(--spacing-xs); cursor: pointer;" onclick="window.location.hash = '#home'">
+      <span class="material-symbols-outlined" style="font-size: 20px;">grid_guides</span>
+      <span class="font-mono" style="font-weight: 700; letter-spacing: 0.15em; font-size: 13px;">ARCH_SYS</span>
+    </div>
+    
+    <nav class="nav-links">
+      <a class="nav-link active" href="#home" id="nav-home">Home</a>
+      <a class="nav-link" href="#services" id="nav-services">Services</a>
+      <a class="nav-link" href="#gallery" id="nav-gallery">Gallery</a>
+      <a class="nav-link" href="#about" id="nav-about">About Us</a>
+      <a class="nav-link" href="#contact" id="nav-contact">Contact</a>
+    </nav>
+    
+    <div style="display: flex; align-items: center; gap: var(--spacing-sm);">
+      <!-- Concept Switcher Toggle -->
+      <div class="concept-toggle-pill" id="concept-toggle" title="Switch between Wireframe and Production concept layout">
+        <span>Concept: <strong id="concept-label">WIREFRAME</strong></span>
+        <div class="toggle-indicator"></div>
+      </div>
+
+      <button class="icon-btn" id="theme-toggle" title="Toggle Theme Modes">
+        <span class="material-symbols-outlined" id="theme-icon">dark_mode</span>
+      </button>
+      <button class="icon-btn" id="grid-toggle" title="Toggle Blueprint Dot Grid">
+        <span class="material-symbols-outlined">grain</span>
+      </button>
+      
+      <!-- Hamburger Menu Trigger (Mobile Only) -->
+      <button class="icon-btn" id="mobile-menu-trigger" title="Open Menu">
+        <span class="material-symbols-outlined">menu</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Live Canvas Telemetry -->
+  <div class="telemetry-bar">
+    <div class="telemetry-item">
+      <span class="telemetry-indicator active"></span>
+      <span>SYS_STATUS: ONLINE</span>
+    </div>
+    <div class="telemetry-item">
+      <span>CONCEPT: <span id="telemetry-concept" style="color: var(--accent); font-weight: bold;">WIREFRAME</span></span>
+    </div>
+    <div class="telemetry-item">
+      <span>ACTIVE_NODE: <span id="telemetry-node" style="color: var(--accent);">HOME_PAGE</span></span>
+    </div>
+    <div class="telemetry-item">
+      <span>VIEW_PORT: <span id="telemetry-viewport">0px</span></span>
+    </div>
+    <div class="telemetry-item">
+      <span>SCROLL_DEPTH: <span id="telemetry-scroll">0%</span></span>
+    </div>
+    <div class="telemetry-item" style="display: none; @media (min-width: 600px) { display: flex; }">
+      <span>CURSOR: <span id="telemetry-cursor">X:0, Y:0</span></span>
+    </div>
+  </div>
+
+  <main>
+    
+    <!-- ========================================== -->
+    <!-- VIEW: HOME                                 -->
+    <!-- ========================================== -->
+    <div id="view-home" class="page-view active">
+      
+      <!-- Hero -->
+      <section class="hero-section">
+        <div class="grid-cols-two">
+          <div style="display: flex; flex-direction: column; gap: var(--spacing-md); justify-content: center;">
+            <div class="mono-label" style="display: flex; align-items: center; gap: 8px;">
+              <span style="color: var(--accent);">[PROJECT_INIT]</span> CORE_CREDENTIALS_ONLINE
+            </div>
+            
+            <h1 class="title-xl">
+              WE ARCHITECT<br>
+              <span class="hero-typewriter" id="typewriter-text">DIGITAL SYSTEM</span><br>
+              FOR SCALE
+            </h1>
+            
+            <p style="font-size: 16px; color: var(--secondary); max-width: 600px;">
+              An engineering-first corporate agency drafting high-performance web products, scalable backend infrastructures, robust brand architectures, and custom AI/automation blueprints.
+            </p>
+            
+            <div style="display: flex; gap: var(--spacing-sm); margin-top: var(--spacing-xs); flex-wrap: wrap;">
+              <a class="btn btn-primary" href="#services">Configure Project blueprint</a>
+              <a class="btn btn-secondary" href="#about">Understand Our Architecture</a>
+            </div>
+          </div>
+          
+          <div style="display: flex; align-items: center; justify-content: center; position: relative;">
+            <div class="wireframe-placeholder brackets" style="width: 100%; aspect-ratio: 1/1; max-width: 400px; border-radius: var(--radius-none);">
+              <div class="br-corner-bl"></div>
+              <div class="center-label">HERO_SCHEMATIC_3D</div>
+              <div class="font-mono" style="position: absolute; top: 12px; left: 12px; font-size: 10px; color: var(--secondary);">
+                LOC: 0x48FA // SCALE: 1.00
+              </div>
+              <div class="font-mono" style="position: absolute; bottom: 12px; right: 12px; font-size: 10px; color: var(--secondary);">
+                ROT: 45deg // Z-REF: ROOT
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Corporate Metrics Dashboard -->
+      <section class="metrics-grid">
+        <div class="metric-card">
+          <span class="metric-value" id="m-projects">42+</span>
+          <span class="mono-label">NODES_DEPLOYED</span>
+        </div>
+        <div class="metric-card">
+          <span class="metric-value" id="m-uptime">99.98%</span>
+          <span class="mono-label">SYSTEM_UPTIME</span>
+        </div>
+        <div class="metric-card">
+          <span class="metric-value" id="m-devs">08</span>
+          <span class="mono-label">ACTIVE_ARCHITECTS</span>
+        </div>
+        <div class="metric-card">
+          <span class="metric-value" id="m-nps">100%</span>
+          <span class="mono-label">CLIENT_LOG_SATISFACTION</span>
+        </div>
+      </section>
+
+      <!-- Featured Releases Section -->
+      <section>
+        <div class="section-title-wrapper">
+          <div>
+            <span class="mono-label">// SYSTEM ANNOUNCEMENTS</span>
+            <h2 class="title-lg" style="margin-top: 4px;">FEATURED_RELEASES</h2>
+          </div>
+          <span class="font-mono" style="font-size: 12px; color: var(--secondary);">[02 SELECTED]</span>
+        </div>
+        
+        <div class="highlight-row">
+          <!-- Featured item 1 -->
+          <div class="highlight-content">
+            <span class="mono-label" style="color: var(--accent);">LATEST RELEASE // NODE_001</span>
+            <h3 class="title-md" style="margin-top: 4px; margin-bottom: 8px;">Axonometric Study Platform</h3>
+            <p style="color: var(--secondary); margin-bottom: var(--spacing-md);">
+              Deploying a sub-second load time visual database layout engine featuring high-fidelity wireframe drawings, SVG blueprint maps, and modular UI patterns.
+            </p>
+            <div class="wireframe-placeholder" style="width: 100%; aspect-ratio: 16/9; max-width: 450px;">
+              <div class="center-label">PREVIEW_001</div>
+            </div>
+            <div style="margin-top: var(--spacing-sm);">
+              <a class="btn btn-secondary" href="#gallery" onclick="setTimeout(() => openProjectDrawer('NODE_001'), 400)">INSPECT_BLUEPRINT</a>
+            </div>
+          </div>
+
+          <!-- Featured item 2 -->
+          <div class="highlight-content">
+            <span class="mono-label" style="color: var(--accent);">SYSTEM UPDATE // NODE_004</span>
+            <h3 class="title-md" style="margin-top: 4px; margin-bottom: 8px;">Autonomous Scrape Pipeline</h3>
+            <p style="color: var(--secondary); margin-bottom: var(--spacing-md);">
+              Highly integrated market intelligence scraper gathering structural details from dynamic nodes. Equipped with error logs and recovery algorithms.
+            </p>
+            <div class="wireframe-placeholder" style="width: 100%; aspect-ratio: 16/9; max-width: 450px;">
+              <div class="center-label">PREVIEW_004</div>
+            </div>
+            <div style="margin-top: var(--spacing-sm);">
+              <a class="btn btn-secondary" href="#gallery" onclick="setTimeout(() => openProjectDrawer('NODE_004'), 400)">INSPECT_BLUEPRINT</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- ========================================== -->
+    <!-- VIEW: SERVICES                             -->
+    <!-- ========================================== -->
+    <div id="view-services" class="page-view">
+      
+      <section>
+        <div class="section-title-wrapper">
+          <div>
+            <span class="mono-label">// SERVICE SPECIFICATION</span>
+            <h2 class="title-lg" style="margin-top: 4px;">SERVICES_INDEX</h2>
+          </div>
+          <span class="font-mono" style="font-size: 12px; color: var(--secondary);">[04 NODES AVAILABLE]</span>
+        </div>
+        
+        <div class="services-grid">
+          <!-- Service Card 1 -->
+          <div class="service-card">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+              <span class="service-num">[01]</span>
+              <span class="material-symbols-outlined" style="color: var(--secondary);">developer_mode</span>
+            </div>
+            <h3 class="title-md">FRONTEND_DEV</h3>
+            <p style="color: var(--secondary);">Building pixel-perfect, lightning-fast web applications. Clean architecture, modern state management, and optimized SEO-friendly structures.</p>
+            <div class="font-mono" style="font-size: 11px; margin-top: auto; color: var(--secondary);">
+              STACK: React // Vue // NextJS // Vanilla
+            </div>
+          </div>
+          
+          <!-- Service Card 2 -->
+          <div class="service-card">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+              <span class="service-num">[02]</span>
+              <span class="material-symbols-outlined" style="color: var(--secondary);">dns</span>
+            </div>
+            <h3 class="title-md">BACKEND_SYS</h3>
+            <p style="color: var(--secondary);">Designing reliable databases, microservices, and API configurations built to handle heavy traffic and ensure maximum data security.</p>
+            <div class="font-mono" style="font-size: 11px; margin-top: auto; color: var(--secondary);">
+              STACK: Node // Python // Postgres // REST
+            </div>
+          </div>
+          
+          <!-- Service Card 3 -->
+          <div class="service-card">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+              <span class="service-num">[03]</span>
+              <span class="material-symbols-outlined" style="color: var(--secondary);">token</span>
+            </div>
+            <h3 class="title-md">BRAND_INFRA</h3>
+            <p style="color: var(--secondary);">Drafting cohesive identity guidelines, visual assets, wireframe-first layout designs, and complete design systems for corporate products.</p>
+            <div class="font-mono" style="font-size: 11px; margin-top: auto; color: var(--secondary);">
+              STACK: Figma // Vectors // Guidelines
+            </div>
+          </div>
+          
+          <!-- Service Card 4 -->
+          <div class="service-card">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+              <span class="service-num">[04]</span>
+              <span class="material-symbols-outlined" style="color: var(--secondary);">smart_toy</span>
+            </div>
+            <h3 class="title-md">AI_AUTOMATION</h3>
+            <p style="color: var(--secondary);">Automating business workflows, data pipelines, web scrapers, and integrating LLMs to speed up operations and decision making.</p>
+            <div class="font-mono" style="font-size: 11px; margin-top: auto; color: var(--secondary);">
+              STACK: Python // OpenAI // Scraping // LangChain
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Cost Configurator Widget -->
+      <section>
+        <div class="section-title-wrapper" style="border-bottom: 1px solid var(--outline);">
+          <div>
+            <span class="mono-label">// SYSTEM COMPILER</span>
+            <h2 class="title-lg" style="margin-top: 4px;">PROJECT_ESTIMATOR</h2>
+          </div>
+          <span class="font-mono" style="font-size: 12px; color: var(--secondary);">COMPILING RATES...</span>
+        </div>
+        
+        <div class="estimator-layout">
+          <!-- Controls Panel -->
+          <div class="estimator-controls">
+            <div class="config-group">
+              <span class="config-label-row">
+                <span>01. SELECT_CAPABILITIES</span>
+                <span style="color: var(--accent);">[MINIMUM 1]</span>
+              </span>
+              <div class="checkbox-grid">
+                <label class="checkbox-btn checked" id="label-cap-frontend">
+                  <input type="checkbox" id="cap-frontend" checked>
+                  <span class="check-indicator"></span>
+                  <span>Frontend Architecture</span>
+                </label>
+                
+                <label class="checkbox-btn" id="label-cap-backend">
+                  <input type="checkbox" id="cap-backend">
+                  <span class="check-indicator"></span>
+                  <span>Backend Database</span>
+                </label>
+                
+                <label class="checkbox-btn" id="label-cap-brand">
+                  <input type="checkbox" id="cap-brand">
+                  <span class="check-indicator"></span>
+                  <span>Brand Identity Package</span>
+                </label>
+                
+                <label class="checkbox-btn" id="label-cap-ai">
+                  <input type="checkbox" id="cap-ai">
+                  <span class="check-indicator"></span>
+                  <span>AI Scraper / Agent</span>
+                </label>
+              </div>
+            </div>
+            
+            <div class="config-group">
+              <span class="config-label-row">
+                <span>02. EST_PAGES_OR_NODES</span>
+                <span id="range-val-pages">5 Pages</span>
+              </span>
+              <input type="range" id="param-pages" min="1" max="30" value="5">
+              <div style="display: flex; justify-content: space-between; font-size: 10px; color: var(--secondary); font-family: var(--font-mono);">
+                <span>MIN: 1</span>
+                <span>MAX: 30</span>
+              </div>
+            </div>
+            
+            <div class="config-group">
+              <span class="config-label-row">
+                <span>03. SYSTEM_COMPLEXITY</span>
+                <span id="range-val-complexity">Standard (1.0x)</span>
+              </span>
+              <input type="range" id="param-complexity" min="1" max="3" value="1" step="1">
+              <div style="display: flex; justify-content: space-between; font-size: 10px; color: var(--secondary); font-family: var(--font-mono);">
+                <span>STANDARD (1.0x)</span>
+                <span>ADVANCED (1.5x)</span>
+                <span>ENTERPRISE (2.0x)</span>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Output Panel / Invoice -->
+          <div class="estimator-output bg-dot-matrix">
+            <div class="estimator-invoice brackets">
+              <div class="br-corner-bl"></div>
+              
+              <div class="invoice-header">
+                <span style="font-weight: 700;">SPECIFICATION SHEET</span>
+                <span>SYS_EST_v1.0</span>
+              </div>
+              
+              <div id="invoice-items">
+                <!-- Dynamically populated via JS -->
+              </div>
+              
+              <div class="invoice-total">
+                <span>ESTIMATED_COST</span>
+                <span id="invoice-total-amount">$0</span>
+              </div>
+            </div>
+            
+            <div style="display: flex; flex-direction: column; gap: var(--spacing-sm);">
+              <div class="font-mono" style="font-size: 11px; color: var(--secondary);">
+                * Note: Estimates are based on average execution cycles. Actual requirements analysis will draft the exact contract.
+              </div>
+              <button class="btn btn-primary" id="btn-lock-estimate" style="width: 100%;">
+                COMPILE BLUEPRINT & CONTACT
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- ========================================== -->
+    <!-- VIEW: GALLERY                               -->
+    <!-- ========================================== -->
+    <div id="view-gallery" class="page-view">
+      
+      <section>
+        <div class="section-title-wrapper" style="border-bottom: 1px solid var(--outline);">
+          <div>
+            <span class="mono-label">// SYSTEM REGISTRY</span>
+            <h2 class="title-lg" style="margin-top: 4px;">PROJECT_GALLERY</h2>
+          </div>
+          <span class="font-mono" style="font-size: 12px; color: var(--secondary);">INDEX DIRECTORY</span>
+        </div>
+        
+        <!-- Filters -->
+        <div class="filters-bar">
+          <button class="filter-btn active" data-filter="all">ALL_ASSETS</button>
+          <button class="filter-btn" data-filter="frontend">FRONTEND</button>
+          <button class="filter-btn" data-filter="backend">BACKEND</button>
+          <button class="filter-btn" data-filter="brand">BRAND_ID</button>
+          <button class="filter-btn" data-filter="ai">AI_AGENT</button>
+        </div>
+        
+        <!-- Gallery Grid -->
+        <div class="gallery-grid" id="gallery-container">
+          <!-- Dynamically loaded from main.js -->
+        </div>
+        
+        <!-- Pagination -->
+        <div style="padding: var(--spacing-md) var(--spacing-margin); display: flex; flex-direction: column; align-items: center; gap: var(--spacing-sm); border-bottom: 1px solid var(--outline);">
+          <button class="btn btn-secondary" id="btn-load-more" style="width: 100%; max-width: 280px;">
+            LOAD_MORE_NODES
+          </button>
+          <span class="font-mono" style="font-size: 11px; color: var(--secondary);" id="gallery-counter">
+            DISPLAYING: 0 / 0 ASSETS
+          </span>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- ========================================== -->
+    <!-- VIEW: ABOUT                                -->
+    <!-- ========================================== -->
+    <div id="view-about" class="page-view">
+      
+      <!-- Timeline and Org Chart split -->
+      <section class="about-split">
+        <!-- Credentials / Story -->
+        <div class="about-credentials">
+          <span class="mono-label">// AGENCY CHRONOLOGY</span>
+          <h2 class="title-lg" style="margin-top: 4px; margin-bottom: var(--spacing-sm);">COMPANY_CREDENTIALS</h2>
+          <p style="color: var(--secondary); margin-bottom: var(--spacing-md);">
+            Founded as an engineering collective, ARCH_SYS builds architectural blueprint systems for the modern web. We bypass fluff to focus on raw efficiency, responsive wireframes, and scalable backends.
+          </p>
+          
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="timeline-marker"></div>
+              <span class="timeline-year">2022 // SYSTEM_INIT</span>
+              <p style="font-size: 13px; color: var(--secondary);">Collective formed. Began drafting raw structural wireframe mockups for startups.</p>
+            </div>
+            
+            <div class="timeline-item">
+              <div class="timeline-marker"></div>
+              <span class="timeline-year">2023 // DEPLOY_EXPANSION</span>
+              <p style="font-size: 13px; color: var(--secondary);">Integrated backend nodes and Postgres ledger systems. Standardized on Vite and CSS variables.</p>
+            </div>
+            
+            <div class="timeline-item">
+              <div class="timeline-marker"></div>
+              <span class="timeline-year">2024 // AI_AUTOMATION</span>
+              <p style="font-size: 13px; color: var(--secondary);">Created custom scraping pipelines and automated evaluation dashboard products for enterprises.</p>
+            </div>
+
+            <div class="timeline-item" style="margin-bottom: 0;">
+              <div class="timeline-marker"></div>
+              <span class="timeline-year">2026 // CURRENT_STATE</span>
+              <p style="font-size: 13px; color: var(--secondary);">Executing 40+ active client modules worldwide with sub-second transmission logs.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Wireframe Organization Tree Schematic -->
+        <div class="about-schematics">
+          <span class="mono-label">// SYSTEM HIERARCHY</span>
+          <h2 class="title-md" style="margin-top: 4px; margin-bottom: var(--spacing-md);">STRUCTURAL_ORG_TREE</h2>
+          
+          <div class="org-tree-wrapper brackets">
+            <div class="br-corner-bl"></div>
+            
+            <!-- CEO -->
+            <div class="org-node root">
+              <strong>CEO_NODE</strong><br>
+              <span style="font-size: 9px; opacity: 0.8;">Chief Architect</span>
+            </div>
+            
+            <div class="org-connector-v"></div>
+            
+            <!-- CTO -->
+            <div class="org-node">
+              <strong>CTO_NODE</strong><br>
+              <span style="font-size: 9px; opacity: 0.8;">Sys Integrator</span>
+            </div>
+            
+            <div class="org-connector-v"></div>
+            
+            <!-- Developers row -->
+            <div class="org-row">
+              <div class="org-node" style="font-size: 10px;">
+                <strong>DEV_NODE_01</strong><br>
+                <span style="font-size: 8px; opacity: 0.8;">UI Layer</span>
+              </div>
+              <div class="org-node" style="font-size: 10px;">
+                <strong>DEV_NODE_02</strong><br>
+                <span style="font-size: 8px; opacity: 0.8;">DB Lead</span>
+              </div>
+            </div>
+
+            <div style="font-family: var(--font-mono); font-size: 9px; color: var(--secondary); text-align: center; margin-top: var(--spacing-sm);">
+              [DIAGRAM_04]: DYNAMIC CONNECTIVITY MATRIX
+            </div>
+          </div>
+          
+          <!-- Core values list -->
+          <div style="margin-top: var(--spacing-lg); font-family: var(--font-mono); font-size: 12px; display: flex; flex-direction: column; gap: 8px;">
+            <div style="display: flex; gap: 8px; border-bottom: 1px dashed var(--outline-subtle); padding-bottom: 4px;">
+              <span style="color: var(--accent);">[VAL_01]</span>
+              <span>ENGINEERING_FIRST: No fluff. Performance is our primary metric.</span>
+            </div>
+            <div style="display: flex; gap: 8px; border-bottom: 1px dashed var(--outline-subtle); padding-bottom: 4px;">
+              <span style="color: var(--accent);">[VAL_02]</span>
+              <span>WIREFRAME_PURITY: Clean, understandable wireframes represent clean code.</span>
+            </div>
+            <div style="display: flex; gap: 8px;">
+              <span style="color: var(--accent);">[VAL_03]</span>
+              <span>OPEN_LEDGER: Transparent project scopes, tracking metrics, and rates.</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- ========================================== -->
+    <!-- VIEW: CONTACT                              -->
+    <!-- ========================================== -->
+    <div id="view-contact" class="page-view">
+      
+      <section class="contact-grid">
+        <!-- Brutalist Input Form Panel -->
+        <div class="contact-form-panel">
+          <div class="mono-label">// PAYLOAD DISPATCH</div>
+          <h2 class="title-lg" style="margin-top: 4px; margin-bottom: var(--spacing-md);">INIT_CONTACT</h2>
+          
+          <form class="brutalist-form" id="client-form" onsubmit="event.preventDefault();">
+            <div class="form-row">
+              <div class="form-group">
+                <label class="font-mono" style="font-size: 11px;" for="f-name">CLIENT_NAME:</label>
+                <input class="form-input" type="text" id="f-name" placeholder="John Doe" required>
+              </div>
+              <div class="form-group">
+                <label class="font-mono" style="font-size: 11px;" for="f-email">CLIENT_EMAIL:</label>
+                <input class="form-input" type="email" id="f-email" placeholder="john@example.com" required>
+              </div>
+            </div>
+            
+            <div class="form-row">
+              <div class="form-group">
+                <label class="font-mono" style="font-size: 11px;" for="f-subject">INQUIRY_TYPE:</label>
+                <select class="form-select" id="f-subject">
+                  <option value="General Consultation">01 // General Inquiry</option>
+                  <option value="Frontend Development">02 // Frontend UI Systems</option>
+                  <option value="Fullstack Database">03 // Fullstack Ledger Node</option>
+                  <option value="AI Integration">04 // AI / Custom Scraping</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="font-mono" style="font-size: 11px;" for="f-budget">EST_BUDGET_VALUATION:</label>
+                <div style="display: flex; align-items: center; gap: var(--spacing-sm);">
+                  <input type="range" id="f-budget" min="1000" max="50000" value="10000" step="1000" style="flex: 1;">
+                  <span class="font-mono" id="budget-value" style="font-size: 12px; font-weight: bold; width: 60px;">$10k</span>
+                </div>
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <label class="font-mono" style="font-size: 11px;" for="f-message">PROJECT_SPECIFICATION_DETAILS:</label>
+              <textarea class="form-textarea" id="f-message" rows="5" placeholder="Outline structural requirements..." required></textarea>
+            </div>
+            
+            <button class="btn btn-primary" type="button" id="btn-submit-form" style="align-self: flex-start;">
+              DISPATCH PAYLOAD (SUBMIT)
+            </button>
+          </form>
+        </div>
+
+        <!-- Terminal Console Panel -->
+        <div class="contact-terminal-panel">
+          <div class="mono-label">// SYSTEM INTERFACE</div>
+          <h3 class="title-md">COMMUNICATION_TERMINAL</h3>
+          
+          <div class="terminal">
+            <div class="terminal-header">
+              <span>TERMINAL_SESSION: CORE_COMM</span>
+              <span>ARCH_SYS v1.04</span>
+            </div>
+            
+            <div class="terminal-body" id="terminal-screen">
+              <div class="terminal-line">ARCH_SYS Core Communications Node Online.</div>
+              <div class="terminal-line">Type 'help' to view available system commands.</div>
+              <div class="terminal-line" style="color: var(--secondary);">-----------------------------------------------------</div>
+            </div>
+            
+            <div class="terminal-input-row">
+              <span class="terminal-prompt">&gt;</span>
+              <input type="text" class="terminal-input" id="terminal-cmd" placeholder="type command here..." autocomplete="off">
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+  </main>
+
+  <!-- Side Drawer Details (Modal Panel) -->
+  <div class="drawer-backdrop" id="drawer-backdrop"></div>
+  <div class="side-drawer" id="side-drawer">
+    <div class="drawer-header">
+      <span class="font-mono" style="font-weight: 700; letter-spacing: 0.1em;" id="drawer-project-id">NODE_001</span>
+      <button class="icon-btn" id="drawer-close" title="Close Panel">
+        <span class="material-symbols-outlined">close</span>
+      </button>
+    </div>
+    
+    <div class="drawer-content">
+      <div class="wireframe-placeholder" style="aspect-ratio: 16/10; width: 100%;" id="drawer-image-placeholder">
+        <div class="center-label" id="drawer-image-label">IMAGE_PLACEHOLDER</div>
+      </div>
+      
+      <div>
+        <h3 class="title-lg" id="drawer-title" style="margin-bottom: 4px;">PROJECT TITLE</h3>
+        <span class="mono-label" id="drawer-category">Category // Frontend</span>
+      </div>
+      
+      <div style="border-top: 1px dashed var(--outline-subtle); padding-top: var(--spacing-sm);">
+        <h4 class="label-caps" style="font-size: 11px; margin-bottom: 6px;">SPECIFICATIONS</h4>
+        <p style="color: var(--secondary); font-size: 13px;" id="drawer-desc">
+          System blueprint breakdown will display here detailing architectural decisions, technology integration, and deployment logs.
+        </p>
+      </div>
+      
+      <div>
+        <h4 class="label-caps" style="font-size: 11px; margin-bottom: 6px;">INTEGRATED_STACK</h4>
+        <div id="drawer-stack">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+      
+      <div style="margin-top: auto; display: flex; gap: var(--spacing-sm); border-top: 1px solid var(--outline); padding-top: var(--spacing-md);">
+        <button class="btn btn-primary" style="flex: 1;" onclick="document.getElementById('side-drawer').classList.remove('active'); document.getElementById('drawer-backdrop').classList.remove('active'); window.location.hash='#contact';">
+          INQUIRE_ABOUT_NODE
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Slide-out Drawer Navigation -->
+  <div class="mobile-drawer-backdrop" id="mobile-drawer-backdrop"></div>
+  <div class="mobile-drawer" id="mobile-drawer">
+    <div class="mobile-drawer-header">
+      <span class="font-mono" style="font-weight: 700; letter-spacing: 0.1em;">MENU_INDEX</span>
+      <button class="icon-btn" id="mobile-drawer-close" title="Close Menu">
+        <span class="material-symbols-outlined">close</span>
+      </button>
+    </div>
+    <div class="mobile-drawer-content">
+      <a class="mobile-drawer-link active" href="#home" id="m-nav-home">01 // HOME</a>
+      <a class="mobile-drawer-link" href="#services" id="m-nav-services">02 // SERVICES</a>
+      <a class="mobile-drawer-link" href="#gallery" id="m-nav-gallery">03 // GALLERY</a>
+      <a class="mobile-drawer-link" href="#about" id="m-nav-about">04 // ABOUT_US</a>
+      <a class="mobile-drawer-link" href="#contact" id="m-nav-contact">05 // CONTACT</a>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-top">
+      <div>
+        <span class="font-mono" style="font-weight: 700; font-size: 13px;">ARCH_SYS</span>
+        <div style="color: var(--secondary); margin-top: 4px; max-width: 320px;">
+          Company profile blueprint engine designed to market digital services. All rights reserved.
+        </div>
+      </div>
+      
+      <div style="display: flex; flex-direction: column; gap: 4px;">
+        <span style="font-weight: 600;">NAVIGATION</span>
+        <a href="#home" style="color: var(--secondary); text-decoration: none;">01 // Return Home</a>
+        <a href="#services" style="color: var(--secondary); text-decoration: none;">02 // Core Capabilities</a>
+        <a href="#gallery" style="color: var(--secondary); text-decoration: none;">03 // Project Registry</a>
+        <a href="#about" style="color: var(--secondary); text-decoration: none;">04 // About Credentials</a>
+        <a href="#contact" style="color: var(--secondary); text-decoration: none;">05 // Initiate Connection</a>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <span>© 2026 ARCH_SYS. MADE_IN_INDONESIA.</span>
+      <span>SYS_CHECK: OK // VER: 1.04 // MEM_OK</span>
+    </div>
+  </footer>
+
+  <!-- Script initialization -->
+  <script type="module" src="./main.js"></script>
+</body>
+</html>

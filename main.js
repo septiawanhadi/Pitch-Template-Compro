@@ -4,75 +4,83 @@
 const PROJECTS_DATA = [
   {
     id: "NODE_001",
-    title: "Axonometric Study Platform",
-    category: "frontend",
-    desc: "A brutalist visual database engine featuring advanced canvas grid rendering, SVG architectural visualizations, and interactive structural blueprints. Optimized for sub-second load times.",
-    tech: ["Next.js", "SVG", "Web Audio API", "Vanilla CSS"],
-    dim: "1920x1080",
-    label: "AXON_STUDY"
+    title: "Taman Nasional Raja Ampat",
+    category: "beach",
+    desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
+    tech: ["Papua Barat", "Diving", "Pulau Karang", "Speedboat"],
+    dim: "0°30'S 130°0'E",
+    label: "RAJA_AMPAT",
+    image: "https://images.unsplash.com/photo-1516690561799-46d8f74f90f6?auto=format&fit=crop&w=800&q=80"
   },
   {
     id: "NODE_002",
-    title: "Enterprise Grid Ledger",
-    category: "backend",
-    desc: "Highly-secure database ledger and transaction router designed for inventory logging. Built with strict validation schemas and fully automated integration testing.",
-    tech: ["NodeJS", "PostgreSQL", "Docker", "Redis"],
-    dim: "1440x900",
-    label: "GRID_LEDGER"
+    title: "Gunung Bromo & Tengger",
+    category: "mountain",
+    desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
+    tech: ["Jawa Timur", "Hiking", "Kawah Aktif", "Jeep 4x4"],
+    dim: "7°56'S 112°57'E",
+    label: "BROMO_MTN",
+    image: "https://images.unsplash.com/photo-1604999333679-b86d54738315?auto=format&fit=crop&w=800&q=80"
   },
   {
     id: "NODE_003",
-    title: "Brutalist Identity Guideline",
-    category: "brand",
-    desc: "Complete visual identity framework, custom typographic specs, and responsive component UI stylesheets for an industrial design consultancy.",
-    tech: ["Figma", "Typography Guidelines", "SVG Symbols"],
-    dim: "1200x1200",
-    label: "BRUTAL_BRAND"
+    title: "Candi Borobudur Megah",
+    category: "culture",
+    desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
+    tech: ["Jawa Tengah", "Sejarah", "Edukasi", "Candi Buddha"],
+    dim: "7°36'S 110°12'E",
+    label: "BOROBUDUR",
+    image: "https://images.unsplash.com/photo-1584810359583-96fc3448beaa?auto=format&fit=crop&w=800&q=80"
   },
   {
     id: "NODE_004",
-    title: "High-Freq Web Scraper",
-    category: "ai",
-    desc: "Multi-threaded scraper pipeline capable of harvesting structured market intelligence from complex dynamically loaded target nodes. Includes automated proxy rotation and anti-bot bypass protocols.",
-    tech: ["Python", "Playwright", "FastAPI", "MongoDB"],
-    dim: "1024x1024",
-    label: "SCRAPE_PIPELINE"
+    title: "Pulau Komodo & Padar",
+    category: "adventure",
+    desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
+    tech: ["Nusa Tenggara Timur", "Fauna", "Trekking", "Pink Beach"],
+    dim: "8°35'S 119°29'E",
+    label: "KOMODO_ISL",
+    image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80"
   },
   {
     id: "NODE_005",
-    title: "Component Library Boilerplate",
-    category: "frontend",
-    desc: "A production-ready UI boilerplate featuring strict CSS variable design systems, micro-interactions, responsive bracket widgets, and comprehensive accessibility hooks.",
-    tech: ["TypeScript", "Vanilla CSS", "HTML5 Canvas"],
-    dim: "1280x800",
-    label: "COMP_BOILER"
+    title: "Pantai Kuta & Nusa Penida",
+    category: "beach",
+    desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
+    tech: ["Bali", "Pantai Pasir Putih", "Surfing", "Sunset View"],
+    dim: "8°43'S 115°10'E",
+    label: "BALI_BEACH",
+    image: "https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=800&q=80"
   },
   {
     id: "NODE_006",
-    title: "Distributed Pipeline Router",
-    category: "backend",
-    desc: "Message-broker pipeline facilitating cross-origin API data mapping. Features detailed system diagnostics telemetry logs and micro-second message processing loops.",
-    tech: ["Go", "RabbitMQ", "Prometheus", "Kubernetes"],
-    dim: "1920x1080",
-    label: "DISTRIB_ROUTE"
+    title: "Pendakian Gunung Rinjani",
+    category: "mountain",
+    desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
+    tech: ["Nusa Tenggara Barat", "Trekking Ekstrim", "Danau Segara Anak", "Camping"],
+    dim: "8°25'S 116°27'E",
+    label: "RINJANI_MTN",
+    image: "https://images.unsplash.com/photo-1501555088652-021faa106b9b?auto=format&fit=crop&w=800&q=80"
   },
   {
     id: "NODE_007",
-    title: "Architectural Layout System",
-    category: "brand",
-    desc: "Print-ready and digital editorial wireframe layout models optimized for heavy text grids and diagram structures. Includes customized mathematical font pairing formulas.",
-    tech: ["Typography Guidelines", "Illustrator", "Grid Systems"],
-    dim: "1600x1200",
-    label: "ARCH_LAYOUT"
+    title: "Desa Adat Tana Toraja",
+    category: "culture",
+    desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
+    tech: ["Sulawesi Selatan", "Rumah Tongkonan", "Upacara Rambu Solo", "Budaya Leluhur"],
+    dim: "3°0'S 119°50'E",
+    label: "TORATORAJA",
+    image: "https://images.unsplash.com/photo-1540959733332-eab4deceeaf7?auto=format&fit=crop&w=800&q=80"
   },
   {
     id: "NODE_008",
-    title: "Autonomous Agent Evaluator",
-    category: "ai",
-    desc: "Interactive evaluation dashboard and pipeline assessing conversational LLM accuracy. Allows developers to trigger automated test suites and inspect structured reports.",
-    tech: ["Python", "LangChain", "OpenAI API", "Svelte"],
-    dim: "1440x950",
-    label: "AI_EVAL_AGENT"
+    title: "Danau Toba & Samosir",
+    category: "adventure",
+    desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
+    tech: ["Sumatera Utara", "Danau Vulkanik", "Budaya Batak", "Kapal Feri"],
+    dim: "2°40'N 98°50'E",
+    label: "LAKE_TOBA",
+    image: "https://images.unsplash.com/photo-1626125345510-4603468eedfb?auto=format&fit=crop&w=800&q=80"
   }
 ];
 
@@ -93,10 +101,10 @@ let terminalContactState = {
 };
 
 function getCategoryGradient(category) {
-  if (category === 'frontend') return 'linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%)';
-  if (category === 'backend') return 'linear-gradient(135deg, #1e293b 0%, #10b981 100%)';
-  if (category === 'brand') return 'linear-gradient(135deg, #f97316 0%, #ec4899 100%)';
-  return 'linear-gradient(135deg, #d946ef 0%, #4f46e5 100%)';
+  if (category === 'beach') return 'linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%)'; // Sea blue
+  if (category === 'mountain') return 'linear-gradient(135deg, #10b981 0%, #047857 100%)'; // Emerald green
+  if (category === 'culture') return 'linear-gradient(135deg, #f59e0b 0%, #d97706 100%)'; // Warm amber
+  return 'linear-gradient(135deg, #a855f7 0%, #7e22ce 100%)'; // Purple adventure
 }
 
 // -------------------------------------------------------------
@@ -104,14 +112,14 @@ function getCategoryGradient(category) {
 // -------------------------------------------------------------
 function initRouter() {
   function handleHashChange() {
-    let hash = window.location.hash || '#home';
+    let hash = window.location.hash || '#dashboard';
     let targetPage = hash.substring(1);
     
     const targetEl = document.getElementById(`view-${targetPage}`);
     if (targetEl) {
       navigateToPage(targetPage);
     } else {
-      window.location.hash = '#home';
+      window.location.hash = '#dashboard';
     }
   }
 
@@ -120,21 +128,14 @@ function initRouter() {
 }
 
 function navigateToPage(pageId) {
-  if (isPageRouting) return;
-  isPageRouting = true;
-
-  const loader = document.getElementById('page-loader');
-  const bar = document.getElementById('loader-bar-inner');
-  const log = document.getElementById('loader-log');
   const targetView = document.getElementById(`view-${pageId}`);
-  
-  const logs = [
-    "ALLOCATING_MEMORY...",
-    "RESOLVING_BLUEPRINT_DEPENDENCIES...",
-    "PARSING_WIREFRAME_COORDINATES...",
-    "SYNCING_CSS_VARIABLES...",
-    "RENDER_SEQUENCE_SUCCESS!"
-  ];
+  if (!targetView) return;
+
+  if (pageId === 'dashboard') {
+    document.body.classList.add('dashboard-active');
+  } else {
+    document.body.classList.remove('dashboard-active');
+  }
 
   document.querySelectorAll('.nav-link').forEach(link => {
     link.classList.remove('active');
@@ -150,78 +151,22 @@ function navigateToPage(pageId) {
     }
   });
 
-  loader.classList.add('active');
-  bar.style.width = '0%';
+  document.querySelectorAll('.page-view').forEach(view => {
+    view.classList.remove('active');
+  });
+  targetView.classList.add('active');
   
-  let progress = 0;
-  let logIdx = 0;
-
-  function loadStep() {
-    progress += Math.floor(Math.random() * 15) + 10;
-    if (progress > 100) progress = 100;
-    
-    bar.style.width = `${progress}%`;
-    
-    if (logIdx < logs.length && progress >= (logIdx + 1) * 20) {
-      log.textContent = logs[logIdx];
-      logIdx++;
-    }
-
-    if (progress < 100) {
-      setTimeout(loadStep, 80);
-    } else {
-      setTimeout(() => {
-        document.querySelectorAll('.page-view').forEach(view => {
-          view.classList.remove('active');
-        });
-        targetView.classList.add('active');
-        
-        const nodeTelemetry = document.getElementById('telemetry-node');
-        if (nodeTelemetry) {
-          nodeTelemetry.textContent = `${pageId.toUpperCase()}_PAGE`;
-        }
-
-        loader.classList.remove('active');
-        isPageRouting = false;
-        window.scrollTo(0, 0);
-        
-        printTerminalLine(`SYSTEM_ROUTER: Active view altered to node [${pageId.toUpperCase()}];`);
-      }, 150);
-    }
-  }
-
-  loadStep();
+  window.scrollTo(0, 0);
+  printTerminalLine(`SYSTEM_ROUTER: Active view altered to node [${pageId.toUpperCase()}];`);
 }
 
 // -------------------------------------------------------------
 // TELEMETRY MONITOR SYSTEM
 // -------------------------------------------------------------
-function initTelemetry() {
-  const vpLabel = document.getElementById('telemetry-viewport');
-  const scrollLabel = document.getElementById('telemetry-scroll');
-  const cursorLabel = document.getElementById('telemetry-cursor');
 
-  function updateViewport() {
-    vpLabel.textContent = `${window.innerWidth}px × ${window.innerHeight}px`;
-  }
-  window.addEventListener('resize', updateViewport);
-  updateViewport();
-
-  window.addEventListener('scroll', () => {
-    const scrollPercent = Math.round(
-      (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100
-    ) || 0;
-    scrollLabel.textContent = `${scrollPercent}%`;
-    
-    updateActiveNavHighlight();
-  });
-
-  window.addEventListener('mousemove', (e) => {
-    cursorLabel.textContent = `X:${e.clientX}, Y:${e.clientY}`;
-  });
-}
 
 function updateActiveNavHighlight() {
+  if (window.location.hash === '#dashboard' || !window.location.hash) return;
   const sections = ['home', 'services', 'gallery', 'about', 'contact'];
   const scrollPos = window.scrollY + 200;
   
@@ -262,16 +207,72 @@ function initConceptSwitcher() {
     conceptMode = mode;
     localStorage.setItem('conceptMode', mode);
 
+    const heroPlaceholder = document.getElementById('hero-image-placeholder');
+    const heroLabel = document.getElementById('hero-image-label');
+    const featImage1 = document.getElementById('featured-image-1');
+    const featLabel1 = document.getElementById('featured-label-1');
+    const featImage2 = document.getElementById('featured-image-2');
+    const featLabel2 = document.getElementById('featured-label-2');
+
     if (mode === 'production') {
       document.documentElement.classList.add('production-mode');
       label.textContent = 'PRODUCTION';
-      telemetryVal.textContent = 'PRODUCTION';
+      if (telemetryVal) telemetryVal.textContent = 'PRODUCTION';
       printTerminalLine('SYS_CONCEPT: Concept mode set to PRODUCTION (High-Fidelity UI);');
+
+      if (heroPlaceholder) {
+        heroPlaceholder.style.backgroundImage = "url('https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=1200&q=80')"; // Bali beach
+        heroPlaceholder.style.backgroundSize = "cover";
+        heroPlaceholder.style.backgroundPosition = "center";
+        heroPlaceholder.style.borderColor = "transparent";
+      }
+      if (heroLabel) heroLabel.style.display = 'none';
+
+      if (featImage1) {
+        featImage1.style.backgroundImage = "url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80')"; // Komodo
+        featImage1.style.backgroundSize = "cover";
+        featImage1.style.backgroundPosition = "center";
+        featImage1.style.borderColor = "transparent";
+      }
+      if (featLabel1) featLabel1.style.display = 'none';
+
+      if (featImage2) {
+        featImage2.style.backgroundImage = "url('https://images.unsplash.com/photo-1604999333679-b86d54738315?auto=format&fit=crop&w=800&q=80')"; // Bromo
+        featImage2.style.backgroundSize = "cover";
+        featImage2.style.backgroundPosition = "center";
+        featImage2.style.borderColor = "transparent";
+      }
+      if (featLabel2) featLabel2.style.display = 'none';
+
     } else {
       document.documentElement.classList.remove('production-mode');
       label.textContent = 'WIREFRAME';
-      telemetryVal.textContent = 'WIREFRAME';
+      if (telemetryVal) telemetryVal.textContent = 'WIREFRAME';
       printTerminalLine('SYS_CONCEPT: Concept mode set to WIREFRAME (Blueprint System);');
+
+      if (heroPlaceholder) {
+        heroPlaceholder.style.backgroundImage = "";
+        heroPlaceholder.style.backgroundSize = "";
+        heroPlaceholder.style.backgroundPosition = "";
+        heroPlaceholder.style.borderColor = "";
+      }
+      if (heroLabel) heroLabel.style.display = 'block';
+
+      if (featImage1) {
+        featImage1.style.backgroundImage = "";
+        featImage1.style.backgroundSize = "";
+        featImage1.style.backgroundPosition = "";
+        featImage1.style.borderColor = "";
+      }
+      if (featLabel1) featLabel1.style.display = 'block';
+
+      if (featImage2) {
+        featImage2.style.backgroundImage = "";
+        featImage2.style.backgroundSize = "";
+        featImage2.style.backgroundPosition = "";
+        featImage2.style.borderColor = "";
+      }
+      if (featLabel2) featLabel2.style.display = 'block';
     }
 
     renderGallery();
@@ -355,11 +356,11 @@ function initTypewriter() {
   if (!textEl) return;
   
   const phrases = [
-    'FRONTEND LAYOUTS',
-    'BACKEND SYSTEMS',
-    'BRAND UTILITIES',
-    'AI AUTOMATIONS',
-    'BLUEPRINT CODES'
+    'DESTINASI INDAH',
+    'PEMANDU LOKAL',
+    'PAKET WISATA',
+    'AKOMODASI NYAMAN',
+    'PETUALANGAN BARU'
   ];
   let phraseIdx = 0;
   let charIdx = 0;
@@ -416,11 +417,11 @@ function initEstimator() {
   if (!capFrontend) return;
 
   const baseRates = {
-    frontend: 3000,
-    backend: 4000,
-    brand: 2000,
-    ai: 5000,
-    page: 200
+    frontend: 150, // Penginapan
+    backend: 50,   // Transportasi
+    brand: 30,     // Pemandu Wisata
+    ai: 80,        // Dokumentasi
+    page: 25       // Biaya dasar harian per peserta (di kalkulator sebagai durasi hari / basic fee per day)
   };
 
   function updateEstimate() {
@@ -428,7 +429,7 @@ function initEstimator() {
     let subtotal = 0;
 
     if (capFrontend.checked) {
-      itemsHtml += `<div class="invoice-row"><span>Frontend Architecture</span><span>$${baseRates.frontend.toLocaleString()}</span></div>`;
+      itemsHtml += `<div class="invoice-row"><span>Penginapan & Hotel</span><span>$${baseRates.frontend.toLocaleString()}</span></div>`;
       subtotal += baseRates.frontend;
       document.getElementById('label-cap-frontend').classList.add('checked');
     } else {
@@ -436,7 +437,7 @@ function initEstimator() {
     }
 
     if (capBackend.checked) {
-      itemsHtml += `<div class="invoice-row"><span>Backend Database</span><span>$${baseRates.backend.toLocaleString()}</span></div>`;
+      itemsHtml += `<div class="invoice-row"><span>Transportasi & Mobil</span><span>$${baseRates.backend.toLocaleString()}</span></div>`;
       subtotal += baseRates.backend;
       document.getElementById('label-cap-backend').classList.add('checked');
     } else {
@@ -444,7 +445,7 @@ function initEstimator() {
     }
 
     if (capBrand.checked) {
-      itemsHtml += `<div class="invoice-row"><span>Brand Identity Package</span><span>$${baseRates.brand.toLocaleString()}</span></div>`;
+      itemsHtml += `<div class="invoice-row"><span>Pemandu Wisata Lokal</span><span>$${baseRates.brand.toLocaleString()}</span></div>`;
       subtotal += baseRates.brand;
       document.getElementById('label-cap-brand').classList.add('checked');
     } else {
@@ -452,7 +453,7 @@ function initEstimator() {
     }
 
     if (capAi.checked) {
-      itemsHtml += `<div class="invoice-row"><span>AI Scraper / Agent Node</span><span>$${baseRates.ai.toLocaleString()}</span></div>`;
+      itemsHtml += `<div class="invoice-row"><span>Dokumentasi & Foto</span><span>$${baseRates.ai.toLocaleString()}</span></div>`;
       subtotal += baseRates.ai;
       document.getElementById('label-cap-ai').classList.add('checked');
     } else {
@@ -461,8 +462,8 @@ function initEstimator() {
 
     const pages = parseInt(paramPages.value);
     const pagesCost = pages * baseRates.page;
-    rangeValPages.textContent = `${pages} Page${pages > 1 ? 's' : ''}`;
-    itemsHtml += `<div class="invoice-row"><span>Page Allocation (${pages} Nodes)</span><span>$${pagesCost.toLocaleString()}</span></div>`;
+    rangeValPages.textContent = `${pages} Hari`;
+    itemsHtml += `<div class="invoice-row"><span>Durasi Trip (${pages} Hari)</span><span>$${pagesCost.toLocaleString()}</span></div>`;
     subtotal += pagesCost;
 
     const complexityVal = parseInt(paramComplexity.value);
@@ -470,10 +471,10 @@ function initEstimator() {
     let complexityLabel = 'Standard (1.0x)';
     if (complexityVal === 2) {
       multiplier = 1.5;
-      complexityLabel = 'Advanced (1.5x)';
+      complexityLabel = 'Premium (1.5x)';
     } else if (complexityVal === 3) {
       multiplier = 2.0;
-      complexityLabel = 'Enterprise (2.0x)';
+      complexityLabel = 'Luxury (2.0x)';
     }
     rangeValComplexity.textContent = complexityLabel;
 
@@ -481,7 +482,7 @@ function initEstimator() {
 
     itemsHtml += `<div class="invoice-row" style="color: var(--secondary); font-size: 11px;"><span>Subtotal</span><span>$${subtotal.toLocaleString()}</span></div>`;
     if (multiplier > 1.0) {
-      itemsHtml += `<div class="invoice-row" style="color: var(--accent);"><span>Complexity Modifier</span><span>${multiplier}x</span></div>`;
+      itemsHtml += `<div class="invoice-row" style="color: var(--accent);"><span>Pengali Kelas Fasilitas</span><span>${multiplier}x</span></div>`;
     }
 
     invoiceItems.innerHTML = itemsHtml;
@@ -504,10 +505,10 @@ function initEstimator() {
   btnLockEstimate.addEventListener('click', () => {
     const config = updateEstimate();
     let servicesList = [];
-    if (capFrontend.checked) servicesList.push('Frontend');
-    if (capBackend.checked) servicesList.push('Backend');
-    if (capBrand.checked) servicesList.push('Brand');
-    if (capAi.checked) servicesList.push('AI');
+    if (capFrontend.checked) servicesList.push('Akomodasi');
+    if (capBackend.checked) servicesList.push('Transportasi');
+    if (capBrand.checked) servicesList.push('Pemandu Wisata');
+    if (capAi.checked) servicesList.push('Dokumentasi');
 
     const totalCostRounded = Math.round(config.total);
 
@@ -516,19 +517,15 @@ function initEstimator() {
     const formBudgetValue = document.getElementById('budget-value');
     const formMessage = document.getElementById('f-message');
 
-    if (capAi.checked) formSubject.value = 'AI Integration';
-    else if (capBackend.checked) formSubject.value = 'Fullstack Database';
-    else if (capFrontend.checked) formSubject.value = 'Frontend Development';
-    else formSubject.value = 'General Consultation';
+    if (capFrontend.checked && capBackend.checked) formSubject.value = 'Paket Wisata Alam';
+    else if (capBrand.checked) formSubject.value = 'Trip Kustom';
+    else formSubject.value = 'Paket Wisata Alam'; // Fallback
 
     const clampedBudget = Math.min(Math.max(totalCostRounded, 1000), 50000);
     formBudget.value = clampedBudget;
     formBudgetValue.textContent = `$${Math.round(clampedBudget/1000)}k`;
 
-    formMessage.value = `System Blueprint Estimate Compiled:\n- Selected Nodes: ${servicesList.join(' + ')}\n- Estimated Allocations: ${config.pages} Pages\n- System Complexity: ${config.complexityLabel}\n- Calculated Cost: $${totalCostRounded.toLocaleString()}`;
-
-    printTerminalLine(`SYS_ESTIMATE: Auto-populating client contact payload structure;`);
-    printTerminalLine(`SYS_ESTIMATE: Total Cost calculated: $${totalCostRounded.toLocaleString()};`);
+    formMessage.value = `Estimasi Rencana Perjalanan Disusun:\n- Layanan Terpilih: ${servicesList.join(' + ')}\n- Durasi Wisata: ${config.pages} Hari\n- Kelas Fasilitas: ${config.complexityLabel}\n- Perkiraan Anggaran: $${totalCostRounded.toLocaleString()}`;
 
     window.location.hash = '#contact';
   });
@@ -554,27 +551,31 @@ function renderGallery() {
   const isProduction = document.documentElement.classList.contains('production-mode');
 
   container.innerHTML = displayed.map(item => {
-    const inlineStyle = isProduction ? `style="background: ${getCategoryGradient(item.category)}; border-color: transparent;"` : '';
-    const labelLabel = isProduction ? `${item.title.toUpperCase()}` : item.label;
+    const inlineStyle = isProduction && item.image 
+      ? `style="background-image: url('${item.image}'); background-size: cover; background-position: center; border-color: transparent;"` 
+      : (isProduction ? `style="background: ${getCategoryGradient(item.category)}; border-color: transparent;"` : '');
+    
+    // In production mode, we hide the center label so it looks like a clean, high-fidelity gallery image card
+    const labelHtml = isProduction ? '' : `<div class="center-label">${item.label}</div>`;
 
     return `
       <div class="gallery-item" data-id="${item.id}">
         <div class="wireframe-placeholder font-mono text-center" ${inlineStyle}>
-          <div class="center-label">${labelLabel}</div>
-          <div style="position: absolute; bottom: 8px; right: 8px; font-size: 8px; color: ${isProduction ? '#ffffff' : 'var(--secondary)'}; opacity: 0.7;">
+          ${labelHtml}
+          <div style="position: absolute; bottom: 8px; right: 8px; font-size: 8px; color: #ffffff; text-shadow: 0 1px 3px rgba(0,0,0,0.8); opacity: 0.9; font-weight: bold;">
             ${item.dim}
           </div>
         </div>
         <div class="gallery-meta">
-          <span class="label-caps" style="font-size: 11px; color: var(--primary);">${item.title}</span>
-          <span class="font-mono text-secondary" style="font-size: 10px;">ID: ${item.id} // CAT: ${item.category.toUpperCase()}</span>
+          <span class="label-caps" style="font-size: 13px; font-weight: 600; color: var(--primary);">${item.title}</span>
+          <span class="text-secondary" style="font-size: 11px; text-transform: capitalize;">Kategori: ${item.category}</span>
         </div>
       </div>
     `;
   }).join('');
 
   if (counter) {
-    counter.textContent = `DISPLAYING: ${displayed.length.toString().padStart(2, '0')} / ${filtered.length.toString().padStart(2, '0')} NODES`;
+    counter.textContent = `Menampilkan: ${displayed.length} / ${filtered.length} Destinasi`;
   }
 
   const loadMoreBtn = document.getElementById('btn-load-more');
@@ -608,14 +609,12 @@ function initFilters() {
       activeFilter = btn.getAttribute('data-filter');
       visibleCount = 6;
       renderGallery();
-      printTerminalLine(`SYS_GALLERY: Active directory filtered [${activeFilter.toUpperCase()}];`);
     });
   });
 
   document.getElementById('btn-load-more').addEventListener('click', () => {
     visibleCount += 6;
     renderGallery();
-    printTerminalLine(`SYS_GALLERY: Requesting next visual index nodes;`);
   });
 }
 
@@ -628,19 +627,23 @@ function openProjectDrawer(projId) {
 
   const isProduction = document.documentElement.classList.contains('production-mode');
   const drawerImage = document.getElementById('drawer-image-placeholder');
+  const drawerImageLabel = document.getElementById('drawer-image-label');
 
-  document.getElementById('drawer-project-id').textContent = proj.id;
+  const projectIdEl = document.getElementById('drawer-project-id');
+  if (projectIdEl) projectIdEl.textContent = proj.id;
   document.getElementById('drawer-title').textContent = proj.title;
-  document.getElementById('drawer-category').textContent = `CATEGORY // ${proj.category.toUpperCase()}`;
+  document.getElementById('drawer-category').textContent = `Kategori: ${proj.category}`;
   document.getElementById('drawer-image-label').textContent = isProduction ? proj.title.toUpperCase() : proj.label;
   document.getElementById('drawer-desc').textContent = proj.desc;
   
-  if (isProduction) {
-    drawerImage.style.background = getCategoryGradient(proj.category);
+  if (isProduction && proj.image) {
+    drawerImage.style.background = `url('${proj.image}') center/cover no-repeat`;
     drawerImage.style.borderColor = 'transparent';
+    if (drawerImageLabel) drawerImageLabel.style.display = 'none';
   } else {
     drawerImage.style.background = '';
     drawerImage.style.borderColor = '';
+    if (drawerImageLabel) drawerImageLabel.style.display = 'block';
   }
 
   const stackContainer = document.getElementById('drawer-stack');
@@ -648,7 +651,6 @@ function openProjectDrawer(projId) {
 
   document.getElementById('side-drawer').classList.add('active');
   document.getElementById('drawer-backdrop').classList.add('active');
-  printTerminalLine(`SYS_DRAWER: Populated specs for node [${proj.id}];`);
 }
 
 function initDrawer() {
@@ -693,30 +695,11 @@ function initContactForm() {
     const msg = document.getElementById('f-message').value.trim();
 
     if (!name || !email || !msg) {
-      printTerminalLine("ERROR: INCOMPLETE PAYLOAD PARAMETERS.", "#ba1a1a");
-      alert("Please populate all required fields.");
+      alert("Harap lengkapi semua bidang isian wajib.");
       return;
     }
 
-    terminalContactState = {
-      step: 'submitting',
-      services: [subject],
-      pages: null,
-      complexity: null,
-      totalCost: parseInt(budgetVal),
-      name: name,
-      email: email,
-      msg: msg
-    };
-
-    printTerminalLine("-----------------------------------------------------", "#a1a1a1");
-    printTerminalLine("INCOMING INQUIRY VIA SECURE PAYLOAD FORM...", "#ffd700");
-    printTerminalLine(`NAME  : ${name}`);
-    printTerminalLine(`EMAIL : ${email}`);
-    printTerminalLine(`TYPE  : ${subject}`);
-    printTerminalLine(`BUDGET: $${parseInt(budgetVal).toLocaleString()}`);
-    
-    compileInquiry();
+    alert(`Terima kasih ${name}, permintaan rencana perjalanan Anda telah kami terima! Kami akan segera menghubungi Anda melalui email ${email}.`);
 
     document.getElementById('f-name').value = '';
     document.getElementById('f-email').value = '';
@@ -728,166 +711,54 @@ function initContactForm() {
 // TERMINAL SIMULATOR
 // -------------------------------------------------------------
 function printTerminalLine(text, colorClass = '') {
-  const screen = document.getElementById('terminal-screen');
-  if (!screen) return;
-
-  const line = document.createElement('div');
-  line.className = 'terminal-line';
-  if (colorClass) {
-    line.style.color = colorClass;
-  }
-  
-  const now = new Date();
-  const timeStr = `${now.getHours().toString().padStart(2, '0')}:${now.getMinutes().toString().padStart(2, '0')}:${now.getSeconds().toString().padStart(2, '0')}`;
-  
-  line.textContent = `[${timeStr}] ${text}`;
-  screen.appendChild(line);
-  screen.scrollTop = screen.scrollHeight;
+  console.log(`[Terminal Log]: ${text}`);
 }
 
-function processCommand(cmdText) {
-  const cmd = cmdText.trim().toLowerCase();
-  printTerminalLine(`> ${cmdText}`, '#ffffff');
+// -------------------------------------------------------------
+// AI DESIGN PROMPTS PLAYGROUND HANDLERS
+// -------------------------------------------------------------
+function initPromptExplorer() {
+  const tabShowcase = document.getElementById('tab-showcase');
+  const tabPrompts = document.getElementById('tab-prompts');
+  const sectionShowcases = document.getElementById('dashboard-section-showcases');
+  const sectionPrompts = document.getElementById('dashboard-section-prompts');
 
-  if (terminalContactState.step !== 'idle') {
-    handleWizardInput(cmdText);
-    return;
-  }
+  if (!tabShowcase || !tabPrompts || !sectionShowcases || !sectionPrompts) return;
 
-  if (cmd === 'help') {
-    printTerminalLine('AVAILABLE SYSTEM COMMANDS:', '#a1a1a1');
-    printTerminalLine('  capabilities   : Show technical capabilities');
-    printTerminalLine('  work           : Show project registry index');
-    printTerminalLine('  estimate       : Route to calculator widget');
-    printTerminalLine('  contact        : Start project wizard');
-    printTerminalLine('  about          : Output company credentials');
-    printTerminalLine('  clear          : Flush terminal logs');
-  } else if (cmd === 'clear') {
-    const screen = document.getElementById('terminal-screen');
-    if (screen) screen.innerHTML = '';
-  } else if (cmd === 'capabilities') {
-    printTerminalLine('CAPABILITIES CATALOGUE:', '#a1a1a1');
-    printTerminalLine('  - FRONTEND_DEV: React/Next.js layout layers');
-    printTerminalLine('  - BACKEND_SYS : DB routers and ledgers');
-    printTerminalLine('  - BRAND_INFRA : SVG design rules');
-    printTerminalLine('  - AI_AUTOMATE : Automation pipelines');
-  } else if (cmd === 'about') {
-    printTerminalLine('ARCH_SYS COMPANY CREDENTIALS:', '#a1a1a1');
-    printTerminalLine('  - Organization: Architecture Systems Collective');
-    printTerminalLine('  - Operational : 2022 - PRESENT');
-    printTerminalLine('  - Core Stack  : Modular wireframe development');
-    printTerminalLine('  - Grid Status : Connected // Online');
-  } else if (cmd === 'work') {
-    printTerminalLine('PROJECT REGISTRY NODES:', '#a1a1a1');
-    PROJECTS_DATA.forEach(p => {
-      printTerminalLine(`  - ${p.id} : ${p.title} [${p.category.toUpperCase()}]`);
-    });
-  } else if (cmd === 'estimate') {
-    printTerminalLine('Redirecting to COMPILER configuration panel...');
-    window.location.hash = '#services';
-  } else if (cmd === 'contact') {
-    startTerminalWizard();
-  } else {
-    printTerminalLine(`UNRECOGNIZED ACTION: "${cmdText}". Initializing contact sequence...`);
-    startTerminalWizard([], null, null, null, cmdText);
-  }
+  // 1. Tab Switching Listeners
+  tabShowcase.addEventListener('click', () => {
+    tabShowcase.classList.add('active');
+    tabPrompts.classList.remove('active');
+    sectionShowcases.style.display = 'block';
+    sectionPrompts.style.display = 'none';
+  });
+
+  tabPrompts.addEventListener('click', () => {
+    tabPrompts.classList.add('active');
+    tabShowcase.classList.remove('active');
+    sectionShowcases.style.display = 'none';
+    sectionPrompts.style.display = 'block';
+  });
 }
 
-function startTerminalWizard(servicesList = [], pages = null, complexity = null, total = null, initialMsg = '') {
-  terminalContactState = {
-    step: 'awaiting_name',
-    services: servicesList,
-    pages: pages,
-    complexity: complexity,
-    totalCost: total,
-    name: '',
-    email: '',
-    msg: initialMsg
-  };
+// -------------------------------------------------------------
+// FLOATING PROMO POPUP
+// -------------------------------------------------------------
+function initPromoPopup() {
+  const popup = document.getElementById('promo-popup');
+  const closeBtn = document.getElementById('promo-close');
+  if (!popup || !closeBtn) return;
 
-  printTerminalLine('-----------------------------------------------------', '#a1a1a1');
-  printTerminalLine('LAUNCHING CONTACT COMPILER MODULE...', '#ffd700');
-  
-  if (total) {
-    printTerminalLine(`ATTACHED ESTIMATE: $${total.toLocaleString()}`);
-  }
-  if (initialMsg) {
-    printTerminalLine(`INQUIRY: "${initialMsg}"`);
-  }
-
-  printTerminalLine('Enter client name to initialize identity blueprint:');
-}
-
-function handleWizardInput(input) {
-  if (terminalContactState.step === 'awaiting_name') {
-    terminalContactState.name = input;
-    terminalContactState.step = 'awaiting_email';
-    printTerminalLine(`CLIENT_NAME REGISTERED: ${input}`, '#ffd700');
-    printTerminalLine('Enter client email address for transport payload:');
-  } else if (terminalContactState.step === 'awaiting_email') {
-    if (!input.includes('@') || !input.includes('.')) {
-      printTerminalLine('ERROR: INVALID TRANSPORT FORMAT. Re-enter valid email:', '#ba1a1a');
-      return;
+  // Show popup after 3 seconds
+  setTimeout(() => {
+    if (!sessionStorage.getItem('promo-dismissed')) {
+      popup.classList.add('active');
     }
-    terminalContactState.email = input;
-    
-    if (terminalContactState.msg) {
-      compileInquiry();
-    } else {
-      terminalContactState.step = 'awaiting_msg';
-      printTerminalLine(`CLIENT_EMAIL REGISTERED: ${input}`, '#ffd700');
-      printTerminalLine('Enter your detailed project parameters or message:');
-    }
-  } else if (terminalContactState.step === 'awaiting_msg') {
-    terminalContactState.msg = input;
-    compileInquiry();
-  }
-}
+  }, 3000);
 
-function compileInquiry() {
-  terminalContactState.step = 'submitting';
-  printTerminalLine('COMPILING TRANSMISSION DATA PACKET...', '#a1a1a1');
-  
-  let progress = 0;
-  function updateProgress() {
-    progress += 20;
-    const bar = '='.repeat(progress / 10) + '>';
-    printTerminalLine(`COMPILE_STATUS: [${bar.padEnd(11, ' ')}] ${progress}%`);
-    
-    if (progress < 100) {
-      setTimeout(updateProgress, 150);
-    } else {
-      finalizeInquiry();
-    }
-  }
-  
-  setTimeout(updateProgress, 150);
-}
-
-function finalizeInquiry() {
-  printTerminalLine('-----------------------------------------------------', '#a1a1a1');
-  printTerminalLine('TRANSMISSION SUCCESSFUL // NODE ALIGNED', '#00ff66');
-  printTerminalLine(`PAYLOAD: Name: ${terminalContactState.name} // Email: ${terminalContactState.email}`);
-  
-  if (terminalContactState.totalCost) {
-    printTerminalLine(`EST_VALUATION: $${terminalContactState.totalCost.toLocaleString()}`);
-  }
-  
-  printTerminalLine('Our coordinator node will reach out within 24 hours.', '#00ff66');
-  printTerminalLine('Type "clear" or "help" to reset terminal session.');
-  
-  terminalContactState.step = 'idle';
-}
-
-function initTerminal() {
-  const cmdInput = document.getElementById('terminal-cmd');
-  if (!cmdInput) return;
-
-  cmdInput.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter' && cmdInput.value.trim() !== '') {
-      processCommand(cmdInput.value);
-      cmdInput.value = '';
-    }
+  closeBtn.addEventListener('click', () => {
+    popup.classList.remove('active');
+    sessionStorage.setItem('promo-dismissed', 'true');
   });
 }
 
@@ -895,18 +766,18 @@ function initTerminal() {
 // MODULE INITS
 // -------------------------------------------------------------
 document.addEventListener('DOMContentLoaded', () => {
-  initTelemetry();
   initThemeAndGrid();
   initTypewriter();
   initEstimator();
   initFilters();
   initDrawer();
   initContactForm();
-  initTerminal();
   initRouter();
   initConceptSwitcher();
   initMobileDrawer(); // Initialize slide-out mobile drawer listeners
+  initPromptExplorer();
+  initPromoPopup();
   
-  console.log("ARCH_SYS: Core rendering sequence initiated.");
-  console.log("MODE: Multi-view Routing Wireframe System.");
+  console.log("DRIPCODE: Core rendering sequence initiated.");
+  console.log("MODE: Multi-view Routing Wireframe System (Travel Edition).");
 });

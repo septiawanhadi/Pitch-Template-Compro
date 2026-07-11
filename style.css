@@ -1450,11 +1450,13 @@ html.production-mode .tech-tag {
 
 @media (min-width: 768px) {
   .about-split {
-    grid-template-cols: 1.2fr 0.8fr;
+    grid-template-cols: 1fr;
+    max-width: 850px;
+    margin: 0 auto;
   }
   .about-credentials {
     border-bottom: none;
-    border-right: 1px solid var(--outline);
+    border-right: none;
   }
 }
 
@@ -1616,11 +1618,9 @@ html.production-mode .timeline-item:hover .timeline-marker {
 
 @media (min-width: 1024px) {
   .contact-grid {
-    grid-template-cols: 1fr 1fr;
-  }
-  .contact-terminal-panel {
-    border-top: none;
-    border-left: 1px solid var(--outline);
+    grid-template-cols: 1fr;
+    max-width: 800px;
+    margin: 0 auto;
   }
 }
 
@@ -1794,3 +1794,2166 @@ html.production-mode footer {
     flex-direction: row;
   }
 }
+
+/* -------------------------------------------------------------
+   Floating Promo Popup Card
+   ------------------------------------------------------------- */
+.promo-popup {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: calc(100% - 48px);
+  max-width: 360px;
+  background-color: var(--surface);
+  border: 2px solid var(--primary);
+  border-radius: var(--radius-none);
+  padding: var(--spacing-md);
+  box-shadow: 8px 8px 0px var(--primary);
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  transform: translateY(150%) scale(0.9);
+  opacity: 0;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.6s ease;
+}
+
+.promo-popup.active {
+  transform: translateY(0) scale(1);
+  opacity: 1;
+}
+
+html.production-mode .promo-popup {
+  border-radius: 16px;
+  border-color: rgba(255, 255, 255, 0.15);
+  background: var(--surface-container-low);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+  border: 1px solid var(--outline-subtle);
+}
+
+.promo-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: transparent;
+  border: none;
+  color: var(--secondary);
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color var(--transition-normal), transform var(--transition-normal);
+}
+
+.promo-close:hover {
+  color: var(--accent);
+  transform: rotate(90deg);
+}
+
+.promo-content {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.promo-badge {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: 0.1em;
+}
+
+.promo-text {
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--primary);
+  margin: 0;
+  font-weight: 500;
+}
+
+.promo-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-xs);
+  align-self: flex-start;
+  text-decoration: none;
+  font-size: 12px;
+  padding: 8px 16px;
+  font-weight: bold;
+}
+
+html.production-mode .promo-btn {
+  background: linear-gradient(135deg, var(--accent) 0%, #8b5cf6 100%);
+  border: none;
+  color: #fff;
+  box-shadow: 0 4px 15px var(--glow-accent);
+}
+
+html.production-mode .promo-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px var(--glow-accent);
+}
+
+/* -------------------------------------------------------------
+   Dashboard Portal Layout
+   ------------------------------------------------------------- */
+body.dashboard-active header,
+body.dashboard-active footer {
+  display: none !important;
+}
+
+.dashboard-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--spacing-lg) var(--spacing-margin);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  min-height: 85vh;
+  justify-content: center;
+}
+
+@media (min-width: 768px) {
+  .dashboard-container {
+    padding: var(--spacing-xl) var(--spacing-margin);
+    gap: var(--spacing-lg);
+  }
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--outline);
+  padding-bottom: var(--spacing-md);
+  margin-bottom: var(--spacing-sm);
+  transition: border-color var(--transition-normal);
+}
+
+.dashboard-logo {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: 0.1em;
+  color: var(--primary);
+  cursor: pointer;
+}
+
+.dashboard-hero {
+  text-align: center;
+  max-width: 720px;
+  margin: var(--spacing-md) auto var(--spacing-lg) auto;
+}
+
+.dashboard-hero h1 {
+  font-size: 1.8rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin-bottom: var(--spacing-sm);
+  line-height: 1.2;
+}
+
+@media (min-width: 768px) {
+  .dashboard-hero h1 {
+    font-size: 2.5rem;
+  }
+}
+
+.dashboard-hero p {
+  color: var(--secondary);
+  font-size: 14px;
+  line-height: 1.6;
+  margin: 0;
+}
+
+@media (min-width: 768px) {
+  .dashboard-hero p {
+    font-size: 15px;
+  }
+}
+
+.showcase-grid {
+  display: grid;
+  grid-template-cols: 1fr;
+  gap: var(--spacing-md);
+}
+
+@media (min-width: 768px) {
+  .showcase-grid {
+    grid-template-cols: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .showcase-grid {
+    grid-template-cols: repeat(3, 1fr);
+  }
+}
+
+.showcase-card {
+  background-color: var(--surface);
+  border: 1px solid var(--outline);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: all var(--transition-normal);
+  border-radius: var(--radius-none);
+  overflow: hidden;
+}
+
+.showcase-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-4px);
+  box-shadow: 6px 6px 0px var(--accent);
+}
+
+html.production-mode .showcase-card {
+  border-radius: 16px;
+  border-color: var(--outline-subtle);
+  background: var(--surface-container-low);
+  box-shadow: var(--shadow-main);
+}
+
+html.production-mode .showcase-card:hover {
+  border-color: var(--accent);
+  box-shadow: 0 12px 30px rgba(139, 92, 246, 0.15);
+  transform: translateY(-6px);
+}
+
+.showcase-img {
+  width: 100%;
+  aspect-ratio: 16/10;
+  background-color: var(--surface-container);
+  position: relative;
+  border-bottom: 1px solid var(--outline);
+  background-size: cover;
+  background-position: center;
+  transition: border-color var(--transition-normal);
+}
+
+.showcase-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  padding: 4px 8px;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: 700;
+  background-color: var(--primary);
+  color: var(--on-primary);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.showcase-badge.blueprint {
+  background-color: var(--secondary);
+  color: var(--on-secondary);
+}
+
+.showcase-body {
+  padding: var(--spacing-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  flex: 1;
+}
+
+.showcase-title {
+  font-size: 16px;
+  font-weight: 700;
+  margin: 0;
+  color: var(--primary);
+}
+
+.showcase-desc {
+  font-size: 13px;
+  color: var(--secondary);
+  line-height: 1.5;
+  margin: 0;
+  flex: 1;
+}
+
+.showcase-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 4px;
+}
+
+.showcase-tag {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  padding: 2px 6px;
+  border: 1px solid var(--outline-subtle);
+  background-color: var(--surface-container-high);
+  color: var(--secondary);
+  border-radius: var(--radius-none);
+  transition: all var(--transition-normal);
+}
+
+html.production-mode .showcase-tag {
+  border-radius: 4px;
+}
+
+.showcase-footer {
+  padding: var(--spacing-md);
+  border-top: 1px dashed var(--outline-subtle);
+  transition: border-color var(--transition-normal);
+}
+
+.showcase-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+/* -------------------------------------------------------------
+   Dashboard Tabs Switcher
+   ------------------------------------------------------------- */
+.dashboard-tabs {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-sm);
+  border-bottom: 1px solid var(--outline);
+  padding-bottom: var(--spacing-md);
+  margin-bottom: var(--spacing-md);
+  transition: border-color var(--transition-normal);
+}
+
+.dash-tab-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  padding: var(--spacing-xs) var(--spacing-md);
+  border: 1px solid var(--outline);
+  background: transparent;
+  color: var(--secondary);
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  border-radius: var(--radius-none);
+  transition: all var(--transition-normal);
+}
+
+.dash-tab-btn:hover {
+  background-color: var(--surface-container);
+  color: var(--primary);
+}
+
+.dash-tab-btn.active {
+  background-color: var(--primary);
+  color: var(--on-primary);
+  border-color: var(--primary);
+}
+
+html.production-mode .dash-tab-btn {
+  border-radius: var(--radius-full);
+}
+
+html.production-mode .dash-tab-btn.active {
+  background: linear-gradient(135deg, var(--accent) 0%, #8b5cf6 100%);
+  color: #fff;
+  border-color: transparent;
+  box-shadow: 0 4px 12px var(--glow-accent);
+}
+
+/* -------------------------------------------------------------
+   AI Design Prompts Explorer Layout (2-Column)
+   ------------------------------------------------------------- */
+.prompt-explorer {
+  display: grid;
+  grid-template-cols: 1fr;
+  gap: var(--spacing-lg);
+  margin-top: var(--spacing-md);
+  align-items: start;
+}
+
+@media (min-width: 1024px) {
+  .prompt-explorer {
+    grid-template-cols: 280px 1fr;
+  }
+}
+
+.explorer-panel {
+  border: 1px solid var(--outline);
+  background-color: var(--surface);
+  padding: var(--spacing-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  border-radius: var(--radius-none);
+  transition: all var(--transition-normal);
+}
+
+html.production-mode .explorer-panel {
+  border-radius: 16px;
+  border-color: var(--outline-subtle);
+  background-color: var(--surface-container-low);
+}
+
+.style-list-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.style-select-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--spacing-sm);
+  border: 1px solid var(--outline);
+  background: transparent;
+  text-align: left;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  border-radius: var(--radius-none);
+  transition: all var(--transition-normal);
+  color: var(--primary);
+}
+
+.style-select-btn:hover {
+  background-color: var(--surface-container);
+  border-color: var(--accent);
+}
+
+.style-select-btn.active {
+  border-color: var(--accent);
+  background-color: var(--surface-container-high);
+  box-shadow: 3px 3px 0px var(--accent);
+}
+
+html.production-mode .style-select-btn {
+  border-radius: 12px;
+}
+
+html.production-mode .style-select-btn.active {
+  background-color: var(--surface-container-highest);
+  box-shadow: 0 4px 10px rgba(139, 92, 246, 0.1);
+}
+
+/* -------------------------------------------------------------
+   Interactive Preview Stage - Full Mock Dashboard
+   ------------------------------------------------------------- */
+.preview-stage {
+  display: flex;
+  align-items: stretch;
+  justify-content: stretch;
+  min-height: 480px;
+  border: 1px solid var(--outline);
+  padding: 0;
+  position: relative;
+  overflow: hidden;
+  transition: all var(--transition-normal);
+  background-color: var(--surface-container-low);
+}
+
+html.production-mode .preview-stage {
+  border-radius: 16px;
+  border-color: var(--outline-subtle);
+}
+
+/* Mock Dashboard Layout */
+.mock-dashboard {
+  display: flex;
+  flex: 1;
+  width: 100%;
+  min-height: 480px;
+  transition: all var(--transition-normal);
+  background-color: var(--surface);
+  color: var(--primary);
+  font-family: var(--font-body);
+}
+
+/* Sidebar */
+.mock-sidebar {
+  width: 180px;
+  border-right: 1px solid var(--outline);
+  padding: var(--spacing-md) var(--spacing-sm);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  transition: all var(--transition-normal);
+  background-color: var(--surface-container-low);
+}
+
+.mock-logo {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 700;
+  font-size: 14px;
+  font-family: var(--font-mono);
+  color: var(--primary);
+}
+
+.mock-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.mock-nav-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--secondary);
+  text-decoration: none;
+  border-radius: var(--radius-none);
+  transition: all var(--transition-normal);
+  cursor: pointer;
+}
+
+.mock-nav-item.active {
+  background-color: var(--surface-container-high);
+  color: var(--primary);
+  border-left: 2px solid var(--accent);
+}
+
+/* Main Area */
+.mock-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  transition: all var(--transition-normal);
+  background-color: var(--surface);
+}
+
+.mock-header {
+  height: 48px;
+  border-bottom: 1px solid var(--outline);
+  padding: 0 var(--spacing-md);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: all var(--transition-normal);
+  background-color: var(--surface);
+}
+
+.mock-header-title {
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--primary);
+}
+
+.mock-avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background-color: var(--surface-container-highest);
+  border: 1px solid var(--outline);
+}
+
+.mock-content {
+  padding: var(--spacing-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  overflow-y: auto;
+  flex: 1;
+}
+
+/* Banner */
+.mock-banner {
+  padding: var(--spacing-md);
+  background-color: var(--surface-container);
+  border: 1px solid var(--outline);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  transition: all var(--transition-normal);
+}
+
+.mock-banner h2 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.mock-banner p {
+  margin: 0;
+  font-size: 11px;
+  color: var(--secondary);
+  line-height: 1.4;
+}
+
+/* Metrics Row */
+.mock-metrics {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--spacing-sm);
+}
+
+.mock-metric-card {
+  padding: var(--spacing-sm) var(--spacing-md);
+  background-color: var(--surface-container-low);
+  border: 1px solid var(--outline);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  transition: all var(--transition-normal);
+}
+
+.metric-lbl {
+  font-size: 9px;
+  font-weight: 500;
+  color: var(--secondary);
+  text-transform: uppercase;
+}
+
+.metric-val {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+/* Table card */
+.mock-table-card {
+  border: 1px solid var(--outline);
+  background-color: var(--surface);
+  transition: all var(--transition-normal);
+}
+
+.mock-table-header {
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-bottom: 1px solid var(--outline);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all var(--transition-normal);
+}
+
+.mock-table-header h3 {
+  margin: 0;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.mock-btn {
+  font-family: var(--font-body);
+  font-size: 10px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border: 1px solid var(--outline);
+  background: transparent;
+  cursor: pointer;
+  transition: all var(--transition-normal);
+}
+
+.mock-table-rows {
+  display: flex;
+  flex-direction: column;
+}
+
+.mock-table-row {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr 1fr;
+  padding: 8px var(--spacing-md);
+  font-size: 11px;
+  border-bottom: 1px dashed var(--outline-subtle);
+  align-items: center;
+  color: var(--secondary);
+}
+
+.mock-table-row:last-child {
+  border-bottom: none;
+}
+
+.mock-table-row span:last-child {
+  text-align: right;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.status-badge {
+  font-family: var(--font-mono);
+  font-size: 8px;
+  font-weight: 700;
+  padding: 2px 6px;
+  align-self: center;
+  width: fit-content;
+  text-transform: uppercase;
+  border: 1px solid var(--outline);
+  border-radius: var(--radius-none);
+}
+
+.status-badge.success {
+  background-color: rgba(34, 197, 94, 0.1);
+  color: #22c55e;
+  border-color: rgba(34, 197, 94, 0.3);
+}
+
+.status-badge.pending {
+  background-color: rgba(234, 179, 8, 0.1);
+  color: #eab308;
+  border-color: rgba(234, 179, 8, 0.3);
+}
+
+/* =============================================================
+   AESTHETIC STYLE OVERRIDES FOR MOCK DASHBOARD
+   ============================================================= */
+
+/* -------------------------------------------------------------
+   Theme 1: Neo-Brutalism (style-neobrutalism)
+   ------------------------------------------------------------- */
+.mock-dashboard.style-neobrutalism {
+  font-family: 'Courier Prime', monospace !important;
+  background-color: #ffffff !important;
+  color: #000000 !important;
+}
+
+.mock-dashboard.style-neobrutalism .mock-sidebar {
+  background-color: #ffde59 !important; /* bright yellow */
+  border-right: 3px solid #000000 !important;
+}
+
+.mock-dashboard.style-neobrutalism .mock-logo {
+  font-family: 'Courier Prime', monospace !important;
+  color: #000000 !important;
+}
+
+.mock-dashboard.style-neobrutalism .mock-nav-item {
+  border-radius: 0px !important;
+  border: 2px solid transparent !important;
+  color: #000000 !important;
+}
+
+.mock-dashboard.style-neobrutalism .mock-nav-item.active {
+  background-color: #ffffff !important;
+  border: 2px solid #000000 !important;
+  box-shadow: 3px 3px 0px #000000 !important;
+  font-weight: 900 !important;
+}
+
+.mock-dashboard.style-neobrutalism .mock-main {
+  background-color: #ffffff !important;
+}
+
+.mock-dashboard.style-neobrutalism .mock-header {
+  background-color: #ffffff !important;
+  border-bottom: 3px solid #000000 !important;
+}
+
+.mock-dashboard.style-neobrutalism .mock-header-title {
+  color: #000000 !important;
+  font-weight: 900 !important;
+}
+
+.mock-dashboard.style-neobrutalism .mock-avatar {
+  border: 2px solid #000000 !important;
+  box-shadow: 2px 2px 0px #000000 !important;
+  border-radius: 0px !important;
+  background-color: #ffde59 !important;
+}
+
+.mock-dashboard.style-neobrutalism .mock-banner {
+  background-color: #00f0ff !important; /* brutalist cyan */
+  color: #000000 !important;
+  border: 3px solid #000000 !important;
+  box-shadow: 5px 5px 0px #000000 !important;
+}
+
+.mock-dashboard.style-neobrutalism .mock-metric-card {
+  background-color: #ffffff !important;
+  border: 3px solid #000000 !important;
+  box-shadow: 4px 4px 0px #000000 !important;
+}
+
+.mock-dashboard.style-neobrutalism .metric-lbl {
+  color: #000000 !important;
+  font-weight: bold !important;
+}
+
+.mock-dashboard.style-neobrutalism .metric-val {
+  color: #000000 !important;
+  font-weight: 900 !important;
+}
+
+.mock-dashboard.style-neobrutalism .mock-table-card {
+  border: 3px solid #000000 !important;
+  box-shadow: 6px 6px 0px #000000 !important;
+  border-radius: 0px !important;
+}
+
+.mock-dashboard.style-neobrutalism .mock-table-header {
+  border-bottom: 3px solid #000000 !important;
+  background-color: #ffde59 !important;
+}
+
+.mock-dashboard.style-neobrutalism .mock-btn {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+  border: 2px solid #000000 !important;
+  box-shadow: 3px 3px 0px #000000 !important;
+  border-radius: 0px !important;
+  font-weight: 800 !important;
+}
+
+.mock-dashboard.style-neobrutalism .mock-btn:hover {
+  transform: translate(-1px, -1px) !important;
+  box-shadow: 4px 4px 0px #000000 !important;
+}
+
+.mock-dashboard.style-neobrutalism .mock-table-row {
+  border-bottom: 2px solid #000000 !important;
+  color: #000000 !important;
+}
+
+.mock-dashboard.style-neobrutalism .mock-table-row span:last-child {
+  color: #000000 !important;
+}
+
+.mock-dashboard.style-neobrutalism .status-badge {
+  border: 2px solid #000000 !important;
+  border-radius: 0px !important;
+  box-shadow: 2px 2px 0px #000000 !important;
+  color: #000000 !important;
+}
+
+.mock-dashboard.style-neobrutalism .status-badge.success {
+  background-color: #22c55e !important;
+}
+
+.mock-dashboard.style-neobrutalism .status-badge.pending {
+  background-color: #eab308 !important;
+}
+
+/* -------------------------------------------------------------
+   Theme 2: Cyberpunk (style-cyberpunk)
+   ------------------------------------------------------------- */
+.mock-dashboard.style-cyberpunk {
+  background-color: #080c14 !important;
+  color: #00f0ff !important;
+}
+
+.mock-dashboard.style-cyberpunk .mock-sidebar {
+  background-color: #0b1120 !important;
+  border-right: 2px solid #ff007f !important;
+}
+
+.mock-dashboard.style-cyberpunk .mock-logo {
+  color: #ff007f !important;
+  text-shadow: 0 0 8px #ff007f !important;
+}
+
+.mock-dashboard.style-cyberpunk .mock-nav-item {
+  color: #a5b4fc !important;
+  border-radius: 2px !important;
+}
+
+.mock-dashboard.style-cyberpunk .mock-nav-item.active {
+  background-color: rgba(255, 0, 127, 0.15) !important;
+  color: #ff007f !important;
+  border-left: 3px solid #ff007f !important;
+  text-shadow: 0 0 6px #ff007f !important;
+}
+
+.mock-dashboard.style-cyberpunk .mock-main {
+  background-color: #080c14 !important;
+}
+
+.mock-dashboard.style-cyberpunk .mock-header {
+  background-color: #0b1120 !important;
+  border-bottom: 2px solid #ff007f !important;
+}
+
+.mock-dashboard.style-cyberpunk .mock-header-title {
+  color: #00f0ff !important;
+  text-shadow: 0 0 5px rgba(0, 240, 255, 0.5) !important;
+}
+
+.mock-dashboard.style-cyberpunk .mock-avatar {
+  border: 1px solid #00f0ff !important;
+  box-shadow: 0 0 8px #00f0ff !important;
+  background-color: #080c14 !important;
+}
+
+.mock-dashboard.style-cyberpunk .mock-banner {
+  background-color: rgba(11, 17, 32, 0.8) !important;
+  border: 2px solid #00f0ff !important;
+  box-shadow: 0 0 15px rgba(0, 240, 255, 0.25) !important;
+  clip-path: polygon(0 0, 97% 0, 100% 20%, 100% 100%, 3% 100%, 0 80%) !important;
+}
+
+.mock-dashboard.style-cyberpunk .mock-banner h2 {
+  color: #ff007f !important;
+  text-shadow: 0 0 5px #ff007f !important;
+}
+
+.mock-dashboard.style-cyberpunk .mock-banner p {
+  color: #a5b4fc !important;
+}
+
+.mock-dashboard.style-cyberpunk .mock-metric-card {
+  background-color: #0b1120 !important;
+  border: 1px solid #ff007f !important;
+  box-shadow: 0 0 10px rgba(255, 0, 127, 0.2) !important;
+}
+
+.mock-dashboard.style-cyberpunk .metric-lbl {
+  color: #a5b4fc !important;
+}
+
+.mock-dashboard.style-cyberpunk .metric-val {
+  color: #00f0ff !important;
+  text-shadow: 0 0 4px #00f0ff !important;
+}
+
+.mock-dashboard.style-cyberpunk .mock-table-card {
+  border: 1px solid #ff007f !important;
+  background-color: #080c14 !important;
+  box-shadow: 0 0 12px rgba(255, 0, 127, 0.15) !important;
+}
+
+.mock-dashboard.style-cyberpunk .mock-table-header {
+  border-bottom: 1px solid #ff007f !important;
+  background-color: #0b1120 !important;
+}
+
+.mock-dashboard.style-cyberpunk .mock-btn {
+  background-color: transparent !important;
+  color: #00f0ff !important;
+  border: 1px solid #00f0ff !important;
+  box-shadow: 0 0 8px rgba(0, 240, 255, 0.3) !important;
+  clip-path: polygon(0 0, 90% 0, 100% 30%, 100% 100%, 10% 100%, 0 70%) !important;
+}
+
+.mock-dashboard.style-cyberpunk .mock-btn:hover {
+  background-color: #00f0ff !important;
+  color: #080c14 !important;
+  box-shadow: 0 0 12px #00f0ff !important;
+}
+
+.mock-dashboard.style-cyberpunk .mock-table-row {
+  border-bottom: 1px dashed rgba(255, 0, 127, 0.2) !important;
+  color: #a5b4fc !important;
+}
+
+.mock-dashboard.style-cyberpunk .mock-table-row span:last-child {
+  color: #00f0ff !important;
+  text-shadow: 0 0 3px #00f0ff !important;
+}
+
+.mock-dashboard.style-cyberpunk .status-badge {
+  border: 1px solid #ff007f !important;
+  box-shadow: 0 0 5px #ff007f !important;
+  background-color: transparent !important;
+}
+
+.mock-dashboard.style-cyberpunk .status-badge.success {
+  color: #ff007f !important;
+}
+
+.mock-dashboard.style-cyberpunk .status-badge.pending {
+  color: #00f0ff !important;
+  border-color: #00f0ff !important;
+  box-shadow: 0 0 5px #00f0ff !important;
+}
+
+/* -------------------------------------------------------------
+   Theme 3: Glassmorphism (style-glassmorphism)
+   ------------------------------------------------------------- */
+.mock-dashboard.style-glassmorphism {
+  background: linear-gradient(135deg, #1e1b4b 0%, #311042 100%) !important;
+  color: #ffffff !important;
+  backdrop-filter: none !important;
+}
+
+.mock-dashboard.style-glassmorphism .mock-sidebar {
+  background: rgba(255, 255, 255, 0.04) !important;
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+  border-right: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+.mock-dashboard.style-glassmorphism .mock-logo {
+  color: #ffffff !important;
+}
+
+.mock-dashboard.style-glassmorphism .mock-nav-item {
+  color: rgba(255, 255, 255, 0.6) !important;
+  border-radius: 8px !important;
+}
+
+.mock-dashboard.style-glassmorphism .mock-nav-item.active {
+  background: rgba(255, 255, 255, 0.1) !important;
+  color: #ffffff !important;
+  border-left: none !important;
+}
+
+.mock-dashboard.style-glassmorphism .mock-main {
+  background: transparent !important;
+}
+
+.mock-dashboard.style-glassmorphism .mock-header {
+  background: rgba(255, 255, 255, 0.02) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+.mock-dashboard.style-glassmorphism .mock-header-title {
+  color: #ffffff !important;
+}
+
+.mock-dashboard.style-glassmorphism .mock-avatar {
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+  background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+.mock-dashboard.style-glassmorphism .mock-banner {
+  background: rgba(255, 255, 255, 0.07) !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  border-radius: 16px !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2) !important;
+}
+
+.mock-dashboard.style-glassmorphism .mock-metric-card {
+  background: rgba(255, 255, 255, 0.05) !important;
+  backdrop-filter: blur(8px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 12px !important;
+}
+
+.mock-dashboard.style-glassmorphism .metric-lbl {
+  color: rgba(255, 255, 255, 0.5) !important;
+}
+
+.mock-dashboard.style-glassmorphism .metric-val {
+  color: #ffffff !important;
+}
+
+.mock-dashboard.style-glassmorphism .mock-table-card {
+  background: rgba(255, 255, 255, 0.04) !important;
+  backdrop-filter: blur(10px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 16px !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15) !important;
+}
+
+.mock-dashboard.style-glassmorphism .mock-table-header {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+.mock-dashboard.style-glassmorphism .mock-btn {
+  background: rgba(255, 255, 255, 0.9) !important;
+  color: #1e1b4b !important;
+  border: none !important;
+  border-radius: 8px !important;
+  font-weight: 600 !important;
+}
+
+.mock-dashboard.style-glassmorphism .mock-btn:hover {
+  background: #ffffff !important;
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.2) !important;
+}
+
+.mock-dashboard.style-glassmorphism .mock-table-row {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+
+.mock-dashboard.style-glassmorphism .mock-table-row span:last-child {
+  color: #ffffff !important;
+}
+
+.mock-dashboard.style-glassmorphism .status-badge {
+  background: rgba(255, 255, 255, 0.1) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  border-radius: 6px !important;
+}
+
+.mock-dashboard.style-glassmorphism .status-badge.success {
+  color: #4ade80 !important;
+}
+
+.mock-dashboard.style-glassmorphism .status-badge.pending {
+  color: #fef08a !important;
+}
+
+/* -------------------------------------------------------------
+   Theme 4: Claymorphism (style-claymorphism)
+   ------------------------------------------------------------- */
+.mock-dashboard.style-claymorphism {
+  background-color: #e0f2fe !important; /* sky blue backdrop */
+  color: #1e293b !important;
+}
+
+.mock-dashboard.style-claymorphism .mock-sidebar {
+  background-color: #f0f9ff !important;
+  border-right: none !important;
+  box-shadow: 4px 0 15px rgba(0, 0, 0, 0.03) !important;
+}
+
+.mock-dashboard.style-claymorphism .mock-logo {
+  color: #0284c7 !important;
+}
+
+.mock-dashboard.style-claymorphism .mock-nav-item {
+  color: #64748b !important;
+  border-radius: 12px !important;
+}
+
+.mock-dashboard.style-claymorphism .mock-nav-item.active {
+  background-color: #e0f2fe !important;
+  color: #0284c7 !important;
+  border-left: none !important;
+  box-shadow: inset -2px -2px 6px rgba(0,0,0,0.02), inset 2px 2px 6px rgba(255,255,255,0.6) !important;
+}
+
+.mock-dashboard.style-claymorphism .mock-main {
+  background-color: #e0f2fe !important;
+}
+
+.mock-dashboard.style-claymorphism .mock-header {
+  background-color: #f0f9ff !important;
+  border-bottom: none !important;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.02) !important;
+}
+
+.mock-dashboard.style-claymorphism .mock-header-title {
+  color: #0284c7 !important;
+}
+
+.mock-dashboard.style-claymorphism .mock-avatar {
+  border: none !important;
+  background-color: #e0f2fe !important;
+  box-shadow: inset -2px -2px 4px rgba(0,0,0,0.05), inset 2px 2px 4px rgba(255,255,255,0.5) !important;
+}
+
+.mock-dashboard.style-claymorphism .mock-banner {
+  background-color: #ffb5d8 !important; /* clay pink */
+  color: #4a154b !important;
+  border-radius: 20px !important;
+  border: none !important;
+  box-shadow: 8px 8px 16px rgba(0,0,0,0.05), 
+              inset -5px -5px 10px rgba(0, 0, 0, 0.08), 
+              inset 5px 5px 10px rgba(255, 255, 255, 0.3) !important;
+}
+
+.mock-dashboard.style-claymorphism .mock-metric-card {
+  background-color: #ffffff !important;
+  border-radius: 16px !important;
+  border: none !important;
+  box-shadow: 6px 6px 12px rgba(0,0,0,0.04), 
+              inset -4px -4px 8px rgba(0, 0, 0, 0.05), 
+              inset 4px 4px 8px rgba(255, 255, 255, 0.6) !important;
+}
+
+.mock-dashboard.style-claymorphism .metric-lbl {
+  color: #64748b !important;
+}
+
+.mock-dashboard.style-claymorphism .metric-val {
+  color: #0f172a !important;
+}
+
+.mock-dashboard.style-claymorphism .mock-table-card {
+  background-color: #ffffff !important;
+  border-radius: 20px !important;
+  border: none !important;
+  box-shadow: 8px 8px 16px rgba(0,0,0,0.04) !important;
+  overflow: hidden !important;
+}
+
+.mock-dashboard.style-claymorphism .mock-table-header {
+  border-bottom: none !important;
+}
+
+.mock-dashboard.style-claymorphism .mock-btn {
+  background-color: #e0f2fe !important;
+  color: #0284c7 !important;
+  border: none !important;
+  border-radius: 12px !important;
+  box-shadow: inset -2px -2px 4px rgba(0,0,0,0.05), inset 2px 2px 4px rgba(255,255,255,0.4) !important;
+}
+
+.mock-dashboard.style-claymorphism .mock-btn:hover {
+  transform: translateY(-1px) !important;
+  box-shadow: 3px 3px 8px rgba(0,0,0,0.05), inset -2px -2px 4px rgba(0,0,0,0.05) !important;
+}
+
+.mock-dashboard.style-claymorphism .mock-table-row {
+  border-bottom: 1px solid #f1f5f9 !important;
+  color: #475569 !important;
+}
+
+.mock-dashboard.style-claymorphism .status-badge {
+  border-radius: 10px !important;
+  border: none !important;
+  box-shadow: inset -1px -1px 3px rgba(0,0,0,0.05) !important;
+}
+
+.mock-dashboard.style-claymorphism .status-badge.success {
+  background-color: #dcfce7 !important;
+  color: #15803d !important;
+}
+
+.mock-dashboard.style-claymorphism .status-badge.pending {
+  background-color: #fef9c3 !important;
+  color: #a16207 !important;
+}
+
+/* -------------------------------------------------------------
+   Theme 5: Swiss Minimalist (style-swissminimalist)
+   ------------------------------------------------------------- */
+.mock-dashboard.style-swissminimalist {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+  font-family: 'Inter', sans-serif !important;
+}
+
+.mock-dashboard.style-swissminimalist .mock-sidebar {
+  background-color: #ffffff !important;
+  border-right: 1px solid #000000 !important;
+}
+
+.mock-dashboard.style-swissminimalist .mock-logo {
+  font-family: 'Inter', sans-serif !important;
+  font-weight: 800 !important;
+  letter-spacing: -0.05em !important;
+  text-transform: uppercase !important;
+  color: #000000 !important;
+}
+
+.mock-dashboard.style-swissminimalist .mock-nav-item {
+  color: #555555 !important;
+  border-radius: 0px !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.02em !important;
+}
+
+.mock-dashboard.style-swissminimalist .mock-nav-item.active {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+  border-left: none !important;
+}
+
+.mock-dashboard.style-swissminimalist .mock-main {
+  background-color: #ffffff !important;
+}
+
+.mock-dashboard.style-swissminimalist .mock-header {
+  background-color: #ffffff !important;
+  border-bottom: 1px solid #000000 !important;
+}
+
+.mock-dashboard.style-swissminimalist .mock-header-title {
+  color: #000000 !important;
+  font-weight: 800 !important;
+  letter-spacing: -0.02em !important;
+}
+
+.mock-dashboard.style-swissminimalist .mock-avatar {
+  border: 1px solid #000000 !important;
+  border-radius: 0px !important;
+  background-color: #ffffff !important;
+}
+
+.mock-dashboard.style-swissminimalist .mock-banner {
+  background-color: #ff3e3e !important; /* Swiss red */
+  color: #ffffff !important;
+  border: 1px solid #000000 !important;
+  border-radius: 0px !important;
+}
+
+.mock-dashboard.style-swissminimalist .mock-banner h2 {
+  font-weight: 800 !important;
+  text-transform: uppercase !important;
+  letter-spacing: -0.03em !important;
+}
+
+.mock-dashboard.style-swissminimalist .mock-banner p {
+  color: rgba(255, 255, 255, 0.9) !important;
+}
+
+.mock-dashboard.style-swissminimalist .mock-metric-card {
+  background-color: #ffffff !important;
+  border: 1px solid #000000 !important;
+  border-radius: 0px !important;
+}
+
+.mock-dashboard.style-swissminimalist .metric-lbl {
+  color: #555555 !important;
+  font-weight: bold !important;
+}
+
+.mock-dashboard.style-swissminimalist .metric-val {
+  color: #000000 !important;
+  font-weight: 800 !important;
+}
+
+.mock-dashboard.style-swissminimalist .mock-table-card {
+  border: 1px solid #000000 !important;
+  border-radius: 0px !important;
+  background-color: #ffffff !important;
+}
+
+.mock-dashboard.style-swissminimalist .mock-table-header {
+  border-bottom: 1px solid #000000 !important;
+}
+
+.mock-dashboard.style-swissminimalist .mock-btn {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+  border: none !important;
+  border-radius: 0px !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+}
+
+.mock-dashboard.style-swissminimalist .mock-btn:hover {
+  background-color: #ff3e3e !important;
+}
+
+.mock-dashboard.style-swissminimalist .mock-table-row {
+  border-bottom: 1px solid #000000 !important;
+  color: #000000 !important;
+}
+
+.mock-dashboard.style-swissminimalist .status-badge {
+  border: 1px solid #000000 !important;
+  border-radius: 0px !important;
+  background-color: transparent !important;
+  font-weight: bold !important;
+}
+
+.mock-dashboard.style-swissminimalist .status-badge.success {
+  color: #000000 !important;
+}
+
+.mock-dashboard.style-swissminimalist .status-badge.pending {
+  color: #ff3e3e !important;
+  border-color: #ff3e3e !important;
+}
+
+/* -------------------------------------------------------------
+   Theme 6: Retro Arcade (style-retroarcade)
+   ------------------------------------------------------------- */
+.mock-dashboard.style-retroarcade {
+  background-color: #000000 !important;
+  color: #39ff14 !important;
+  font-family: 'Courier Prime', monospace !important;
+  box-shadow: inset 0 0 20px rgba(57, 255, 20, 0.2) !important;
+}
+
+.mock-dashboard.style-retroarcade .mock-sidebar {
+  background-color: #000000 !important;
+  border-right: 3px double #39ff14 !important;
+}
+
+.mock-dashboard.style-retroarcade .mock-logo {
+  font-family: 'Courier Prime', monospace !important;
+  color: #39ff14 !important;
+  text-shadow: 0 0 6px #39ff14 !important;
+}
+
+.mock-dashboard.style-retroarcade .mock-nav-item {
+  color: #166534 !important;
+}
+
+.mock-dashboard.style-retroarcade .mock-nav-item.active {
+  background-color: transparent !important;
+  color: #39ff14 !important;
+  border-left: 2px dashed #39ff14 !important;
+  text-shadow: 0 0 5px #39ff14 !important;
+}
+
+.mock-dashboard.style-retroarcade .mock-main {
+  background-color: #000000 !important;
+}
+
+.mock-dashboard.style-retroarcade .mock-header {
+  background-color: #000000 !important;
+  border-bottom: 3px double #39ff14 !important;
+}
+
+.mock-dashboard.style-retroarcade .mock-header-title {
+  color: #39ff14 !important;
+  text-shadow: 0 0 5px #39ff14 !important;
+}
+
+.mock-dashboard.style-retroarcade .mock-avatar {
+  border: 1px solid #39ff14 !important;
+  background-color: #000000 !important;
+  box-shadow: 0 0 4px #39ff14 !important;
+  border-radius: 0px !important;
+}
+
+.mock-dashboard.style-retroarcade .mock-banner {
+  background-color: #000000 !important;
+  color: #39ff14 !important;
+  border: 3px double #39ff14 !important;
+  box-shadow: 0 0 10px rgba(57, 255, 20, 0.4) !important;
+}
+
+.mock-dashboard.style-retroarcade .mock-banner h2 {
+  text-shadow: 0 0 5px #39ff14 !important;
+}
+
+.mock-dashboard.style-retroarcade .mock-banner p {
+  color: #22c55e !important;
+}
+
+.mock-dashboard.style-retroarcade .mock-metric-card {
+  background-color: #000000 !important;
+  border: 1px dashed #39ff14 !important;
+}
+
+.mock-dashboard.style-retroarcade .metric-lbl {
+  color: #166534 !important;
+}
+
+.mock-dashboard.style-retroarcade .metric-val {
+  color: #39ff14 !important;
+  text-shadow: 0 0 4px #39ff14 !important;
+}
+
+.mock-dashboard.style-retroarcade .mock-table-card {
+  border: 3px double #39ff14 !important;
+  background-color: #000000 !important;
+  box-shadow: 0 0 8px rgba(57, 255, 20, 0.3) !important;
+  border-radius: 0px !important;
+}
+
+.mock-dashboard.style-retroarcade .mock-table-header {
+  border-bottom: 3px double #39ff14 !important;
+}
+
+.mock-dashboard.style-retroarcade .mock-btn {
+  background-color: #39ff14 !important;
+  color: #000000 !important;
+  border: 1px solid #000000 !important;
+  font-weight: bold !important;
+  border-radius: 0px !important;
+}
+
+.mock-dashboard.style-retroarcade .mock-btn:hover {
+  background-color: #22c55e !important;
+  color: #ffffff !important;
+  box-shadow: 0 0 8px #39ff14 !important;
+}
+
+.mock-dashboard.style-retroarcade .mock-table-row {
+  border-bottom: 1px dashed #166534 !important;
+  color: #22c55e !important;
+}
+
+.mock-dashboard.style-retroarcade .mock-table-row span:last-child {
+  color: #39ff14 !important;
+  text-shadow: 0 0 3px #39ff14 !important;
+}
+
+.mock-dashboard.style-retroarcade .status-badge {
+  border: 1px solid #39ff14 !important;
+  background-color: transparent !important;
+  color: #39ff14 !important;
+  border-radius: 0px !important;
+}
+
+.mock-dashboard.style-retroarcade .status-badge.success {
+  box-shadow: 0 0 3px #39ff14 !important;
+}
+
+.mock-dashboard.style-retroarcade .status-badge.pending {
+  color: #22c55e !important;
+  border-color: #22c55e !important;
+}
+
+/* -------------------------------------------------------------
+   Theme 7: Bauhaus (style-bauhaus)
+   ------------------------------------------------------------- */
+.mock-dashboard.style-bauhaus {
+  font-family: 'Inter', sans-serif !important;
+  background-color: #f5ebd6 !important; /* Cream */
+  color: #1c1917 !important;
+}
+
+.mock-dashboard.style-bauhaus .mock-sidebar {
+  background-color: #b91c1c !important; /* Bauhaus Red */
+  border-right: 2px solid #1c1917 !important;
+}
+
+.mock-dashboard.style-bauhaus .mock-logo {
+  color: #f5ebd6 !important;
+}
+
+.mock-dashboard.style-bauhaus .mock-nav-item {
+  color: rgba(245, 235, 214, 0.7) !important;
+  border-radius: 0px !important;
+}
+
+.mock-dashboard.style-bauhaus .mock-nav-item.active {
+  background-color: #1c1917 !important;
+  color: #f5ebd6 !important;
+  border-left: none !important;
+}
+
+.mock-dashboard.style-bauhaus .mock-main {
+  background-color: #f5ebd6 !important;
+}
+
+.mock-dashboard.style-bauhaus .mock-header {
+  background-color: #f5ebd6 !important;
+  border-bottom: 2px solid #1c1917 !important;
+}
+
+.mock-dashboard.style-bauhaus .mock-header-title {
+  color: #1c1917 !important;
+  font-weight: 800 !important;
+}
+
+.mock-dashboard.style-bauhaus .mock-avatar {
+  border: 2px solid #1c1917 !important;
+  border-radius: 50% !important;
+  background-color: #1e40af !important; /* blue */
+}
+
+.mock-dashboard.style-bauhaus .mock-banner {
+  background-color: #facc15 !important; /* Yellow */
+  color: #1c1917 !important;
+  border: 2px solid #1c1917 !important;
+  border-radius: 0px !important;
+}
+
+.mock-dashboard.style-bauhaus .mock-banner h2 {
+  font-weight: 900 !important;
+  text-transform: uppercase !important;
+}
+
+.mock-dashboard.style-bauhaus .mock-metric-card {
+  background-color: #1e40af !important; /* Blue card */
+  color: #ffffff !important;
+  border: 2px solid #1c1917 !important;
+  border-radius: 0px !important;
+}
+
+.mock-dashboard.style-bauhaus .mock-metric-card:nth-child(2) {
+  background-color: #ffffff !important;
+  color: #1c1917 !important;
+}
+
+.mock-dashboard.style-bauhaus .mock-metric-card:nth-child(3) {
+  background-color: #1c1917 !important;
+  color: #f5ebd6 !important;
+}
+
+.mock-dashboard.style-bauhaus .metric-lbl {
+  color: inherit !important;
+  opacity: 0.8 !important;
+  font-weight: 700 !important;
+}
+
+.mock-dashboard.style-bauhaus .metric-val {
+  color: inherit !important;
+  font-weight: 800 !important;
+}
+
+.mock-dashboard.style-bauhaus .mock-table-card {
+  border: 2px solid #1c1917 !important;
+  border-radius: 0px !important;
+  background-color: #ffffff !important;
+}
+
+.mock-dashboard.style-bauhaus .mock-table-header {
+  border-bottom: 2px solid #1c1917 !important;
+  background-color: #f5ebd6 !important;
+}
+
+.mock-dashboard.style-bauhaus .mock-btn {
+  background-color: #1c1917 !important;
+  color: #f5ebd6 !important;
+  border: none !important;
+  border-radius: 0px !important;
+}
+
+.mock-dashboard.style-bauhaus .mock-table-row {
+  border-bottom: 1.5px solid #1c1917 !important;
+  color: #1c1917 !important;
+}
+
+.mock-dashboard.style-bauhaus .status-badge {
+  border: 1.5px solid #1c1917 !important;
+  border-radius: 50px !important;
+  background-color: #ffffff !important;
+  color: #1c1917 !important;
+}
+
+.mock-dashboard.style-bauhaus .status-badge.success {
+  background-color: #facc15 !important;
+}
+
+/* -------------------------------------------------------------
+   Theme 8: Art Deco (style-artdeco)
+   ------------------------------------------------------------- */
+.mock-dashboard.style-artdeco {
+  font-family: 'Georgia', serif !important;
+  background-color: #111827 !important;
+  color: #f8fafc !important;
+}
+
+.mock-dashboard.style-artdeco .mock-sidebar {
+  background-color: #0f172a !important;
+  border-right: 2px solid #e5c158 !important; /* gold */
+}
+
+.mock-dashboard.style-artdeco .mock-logo {
+  color: #e5c158 !important;
+  font-weight: bold !important;
+  letter-spacing: 0.1em !important;
+}
+
+.mock-dashboard.style-artdeco .mock-nav-item {
+  color: rgba(248, 250, 252, 0.6) !important;
+  border-radius: 0px !important;
+}
+
+.mock-dashboard.style-artdeco .mock-nav-item.active {
+  background-color: rgba(229, 193, 88, 0.1) !important;
+  color: #e5c158 !important;
+  border-left: 3px double #e5c158 !important;
+}
+
+.mock-dashboard.style-artdeco .mock-main {
+  background-color: #111827 !important;
+}
+
+.mock-dashboard.style-artdeco .mock-header {
+  background-color: #0f172a !important;
+  border-bottom: 2px solid #e5c158 !important;
+}
+
+.mock-dashboard.style-artdeco .mock-header-title {
+  color: #e5c158 !important;
+  letter-spacing: 0.08em !important;
+}
+
+.mock-dashboard.style-artdeco .mock-avatar {
+  border: 1px solid #e5c158 !important;
+  background-color: #1e293b !important;
+  border-radius: 0px !important;
+}
+
+.mock-dashboard.style-artdeco .mock-banner {
+  background-color: #0f172a !important;
+  border: 2px solid #e5c158 !important;
+  outline: 1px solid #e5c158 !important;
+  outline-offset: -4px !important;
+  border-radius: 0px !important;
+}
+
+.mock-dashboard.style-artdeco .mock-banner h2 {
+  color: #e5c158 !important;
+  letter-spacing: 0.05em !important;
+}
+
+.mock-dashboard.style-artdeco .mock-banner p {
+  color: #cbd5e1 !important;
+}
+
+.mock-dashboard.style-artdeco .mock-metric-card {
+  background-color: #0f172a !important;
+  border: 1px solid #e5c158 !important;
+  border-radius: 0px !important;
+}
+
+.mock-dashboard.style-artdeco .metric-lbl {
+  color: #e5c158 !important;
+}
+
+.mock-dashboard.style-artdeco .metric-val {
+  color: #f8fafc !important;
+}
+
+.mock-dashboard.style-artdeco .mock-table-card {
+  border: 2px solid #e5c158 !important;
+  background-color: #0f172a !important;
+  border-radius: 0px !important;
+}
+
+.mock-dashboard.style-artdeco .mock-table-header {
+  border-bottom: 2px solid #e5c158 !important;
+}
+
+.mock-dashboard.style-artdeco .mock-btn {
+  background-color: transparent !important;
+  color: #e5c158 !important;
+  border: 1px solid #e5c158 !important;
+  border-radius: 0px !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.05em !important;
+}
+
+.mock-dashboard.style-artdeco .mock-btn:hover {
+  background-color: #e5c158 !important;
+  color: #111827 !important;
+}
+
+.mock-dashboard.style-artdeco .mock-table-row {
+  border-bottom: 1px dashed rgba(229, 193, 88, 0.3) !important;
+  color: #cbd5e1 !important;
+}
+
+.mock-dashboard.style-artdeco .mock-table-row span:last-child {
+  color: #e5c158 !important;
+}
+
+.mock-dashboard.style-artdeco .status-badge {
+  border: 1px solid #e5c158 !important;
+  background-color: transparent !important;
+  color: #e5c158 !important;
+  border-radius: 0px !important;
+}
+
+/* -------------------------------------------------------------
+   Theme 9: Neumorphism (style-neumorphism)
+   ------------------------------------------------------------- */
+.mock-dashboard.style-neumorphism {
+  background-color: #e0e0e0 !important;
+  color: #333333 !important;
+}
+
+.mock-dashboard.style-neumorphism .mock-sidebar {
+  background-color: #e0e0e0 !important;
+  border-right: none !important;
+  box-shadow: 3px 0 10px rgba(0,0,0,0.03) !important;
+}
+
+.mock-dashboard.style-neumorphism .mock-logo {
+  color: #333333 !important;
+}
+
+.mock-dashboard.style-neumorphism .mock-nav-item {
+  color: #666666 !important;
+  border-radius: 12px !important;
+  margin-bottom: 4px;
+}
+
+.mock-dashboard.style-neumorphism .mock-nav-item.active {
+  background-color: #e0e0e0 !important;
+  color: #000000 !important;
+  border-left: none !important;
+  box-shadow: inset 4px 4px 8px #bebebe, inset -4px -4px 8px #ffffff !important;
+}
+
+.mock-dashboard.style-neumorphism .mock-main {
+  background-color: #e0e0e0 !important;
+}
+
+.mock-dashboard.style-neumorphism .mock-header {
+  background-color: #e0e0e0 !important;
+  border-bottom: none !important;
+}
+
+.mock-dashboard.style-neumorphism .mock-avatar {
+  border: none !important;
+  background-color: #e0e0e0 !important;
+  box-shadow: inset 2px 2px 5px #bebebe, inset -2px -2px 5px #ffffff !important;
+}
+
+.mock-dashboard.style-neumorphism .mock-banner {
+  background-color: #e0e0e0 !important;
+  border-radius: 16px !important;
+  border: none !important;
+  box-shadow: 6px 6px 12px #bebebe, -6px -6px 12px #ffffff !important;
+}
+
+.mock-dashboard.style-neumorphism .mock-metric-card {
+  background-color: #e0e0e0 !important;
+  border-radius: 14px !important;
+  border: none !important;
+  box-shadow: 5px 5px 10px #bebebe, -5px -5px 10px #ffffff !important;
+}
+
+.mock-dashboard.style-neumorphism .metric-lbl {
+  color: #666666 !important;
+}
+
+.mock-dashboard.style-neumorphism .metric-val {
+  color: #333333 !important;
+}
+
+.mock-dashboard.style-neumorphism .mock-table-card {
+  background-color: #e0e0e0 !important;
+  border-radius: 16px !important;
+  border: none !important;
+  box-shadow: 6px 6px 12px #bebebe, -6px -6px 12px #ffffff !important;
+}
+
+.mock-dashboard.style-neumorphism .mock-table-header {
+  border-bottom: none !important;
+}
+
+.mock-dashboard.style-neumorphism .mock-btn {
+  background-color: #e0e0e0 !important;
+  color: #333333 !important;
+  border: none !important;
+  border-radius: 10px !important;
+  box-shadow: 3px 3px 6px #bebebe, -3px -3px 6px #ffffff !important;
+}
+
+.mock-dashboard.style-neumorphism .mock-btn:hover {
+  box-shadow: inset 2px 2px 5px #bebebe, inset -2px -2px 5px #ffffff !important;
+}
+
+.mock-dashboard.style-neumorphism .mock-table-row {
+  border-bottom: 1px solid rgba(0,0,0,0.05) !important;
+  color: #555555 !important;
+}
+
+.mock-dashboard.style-neumorphism .status-badge {
+  border: none !important;
+  border-radius: 8px !important;
+  box-shadow: inset 1px 1px 3px #bebebe, inset -1px -1px 3px #ffffff !important;
+  background-color: #e0e0e0 !important;
+}
+
+.mock-dashboard.style-neumorphism .status-badge.success {
+  color: #2e7d32 !important;
+}
+
+.mock-dashboard.style-neumorphism .status-badge.pending {
+  color: #f57f17 !important;
+}
+
+/* -------------------------------------------------------------
+   Theme 10: Vaporwave (style-vaporwave)
+   ------------------------------------------------------------- */
+.mock-dashboard.style-vaporwave {
+  background-color: #1e0a3d !important; /* neon purple */
+  color: #00ffcc !important; /* cyan */
+}
+
+.mock-dashboard.style-vaporwave .mock-sidebar {
+  background-color: #120224 !important;
+  border-right: 2px solid #ff71ce !important; /* pink */
+}
+
+.mock-dashboard.style-vaporwave .mock-logo {
+  color: #ff71ce !important;
+  text-shadow: 0 0 8px #ff71ce !important;
+}
+
+.mock-dashboard.style-vaporwave .mock-nav-item {
+  color: #00ffcc !important;
+  border-radius: 0px !important;
+}
+
+.mock-dashboard.style-vaporwave .mock-nav-item.active {
+  background-color: rgba(255, 113, 206, 0.2) !important;
+  color: #ff71ce !important;
+  border-left: 3px solid #ff71ce !important;
+}
+
+.mock-dashboard.style-vaporwave .mock-main {
+  background-color: #1e0a3d !important;
+}
+
+.mock-dashboard.style-vaporwave .mock-header {
+  background-color: #120224 !important;
+  border-bottom: 2px solid #ff71ce !important;
+}
+
+.mock-dashboard.style-vaporwave .mock-header-title {
+  color: #00ffcc !important;
+  text-shadow: 0 0 5px #00ffcc !important;
+}
+
+.mock-dashboard.style-vaporwave .mock-avatar {
+  border: 1px solid #ff71ce !important;
+  background-color: #00ffcc !important;
+}
+
+.mock-dashboard.style-vaporwave .mock-banner {
+  background: linear-gradient(135deg, #ff71ce 0%, #01cdfe 100%) !important;
+  color: #120224 !important;
+  border: 2px solid #ff71ce !important;
+  border-radius: 0px !important;
+}
+
+.mock-dashboard.style-vaporwave .mock-metric-card {
+  background-color: #120224 !important;
+  border: 1px solid #00ffcc !important;
+}
+
+.mock-dashboard.style-vaporwave .metric-lbl {
+  color: #ff71ce !important;
+}
+
+.mock-dashboard.style-vaporwave .metric-val {
+  color: #00ffcc !important;
+  text-shadow: 0 0 5px #00ffcc !important;
+}
+
+.mock-dashboard.style-vaporwave .mock-table-card {
+  border: 2px solid #ff71ce !important;
+  background-color: #120224 !important;
+}
+
+.mock-dashboard.style-vaporwave .mock-table-header {
+  border-bottom: 2px solid #ff71ce !important;
+}
+
+.mock-dashboard.style-vaporwave .mock-btn {
+  background-color: transparent !important;
+  color: #00ffcc !important;
+  border: 1px solid #00ffcc !important;
+}
+
+.mock-dashboard.style-vaporwave .mock-btn:hover {
+  background-color: #00ffcc !important;
+  color: #120224 !important;
+}
+
+.mock-dashboard.style-vaporwave .mock-table-row {
+  border-bottom: 1px solid rgba(255, 113, 206, 0.2) !important;
+  color: #ffffff !important;
+}
+
+.mock-dashboard.style-vaporwave .status-badge {
+  border: 1px solid #00ffcc !important;
+  background-color: transparent !important;
+  color: #00ffcc !important;
+  border-radius: 0px !important;
+}
+
+/* -------------------------------------------------------------
+   Theme 11: Botanical (style-botanical)
+   ------------------------------------------------------------- */
+.mock-dashboard.style-botanical {
+  font-family: 'Georgia', serif !important;
+  background-color: #fcfbfa !important; /* Eggshell */
+  color: #2c3531 !important;
+}
+
+.mock-dashboard.style-botanical .mock-sidebar {
+  background-color: #1e3f20 !important; /* Pine Green */
+  border-right: 1px solid #c2c5aa !important;
+}
+
+.mock-dashboard.style-botanical .mock-logo {
+  color: #fcfbfa !important;
+}
+
+.mock-dashboard.style-botanical .mock-nav-item {
+  color: rgba(252, 251, 250, 0.7) !important;
+  border-radius: 8px !important;
+}
+
+.mock-dashboard.style-botanical .mock-nav-item.active {
+  background-color: rgba(252, 251, 250, 0.1) !important;
+  color: #ffffff !important;
+  border-left: none !important;
+}
+
+.mock-dashboard.style-botanical .mock-main {
+  background-color: #fcfbfa !important;
+}
+
+.mock-dashboard.style-botanical .mock-header {
+  background-color: #fcfbfa !important;
+  border-bottom: 1px solid #c2c5aa !important;
+}
+
+.mock-dashboard.style-botanical .mock-header-title {
+  color: #1e3f20 !important;
+}
+
+.mock-dashboard.style-botanical .mock-avatar {
+  border: 1px solid #1e3f20 !important;
+  background-color: #c2c5aa !important;
+}
+
+.mock-dashboard.style-botanical .mock-banner {
+  background-color: #e8f5e9 !important;
+  color: #1b5e20 !important;
+  border: 1px solid #c8e6c9 !important;
+  border-radius: 12px !important;
+}
+
+.mock-dashboard.style-botanical .mock-metric-card {
+  background-color: #ffffff !important;
+  border: 1px solid #c2c5aa !important;
+  border-radius: 12px !important;
+}
+
+.mock-dashboard.style-botanical .metric-lbl {
+  color: #7f8c8d !important;
+}
+
+.mock-dashboard.style-botanical .metric-val {
+  color: #1e3f20 !important;
+}
+
+.mock-dashboard.style-botanical .mock-table-card {
+  border: 1px solid #c2c5aa !important;
+  background-color: #ffffff !important;
+  border-radius: 12px !important;
+  overflow: hidden !important;
+}
+
+.mock-dashboard.style-botanical .mock-table-header {
+  border-bottom: 1px solid #c2c5aa !important;
+}
+
+.mock-dashboard.style-botanical .mock-btn {
+  background-color: #1e3f20 !important;
+  color: #ffffff !important;
+  border: none !important;
+  border-radius: 6px !important;
+}
+
+.mock-dashboard.style-botanical .mock-table-row {
+  border-bottom: 1px solid #f1f1f1 !important;
+  color: #555555 !important;
+}
+
+.mock-dashboard.style-botanical .status-badge {
+  border: none !important;
+  border-radius: 12px !important;
+}
+
+.mock-dashboard.style-botanical .status-badge.success {
+  background-color: #d1e7dd !important;
+  color: #0f5132 !important;
+}
+
+.mock-dashboard.style-botanical .status-badge.pending {
+  background-color: #fff3cd !important;
+  color: #664d03 !important;
+}
+
+/* -------------------------------------------------------------
+   Theme 12: Monochrome (style-monochrome)
+   ------------------------------------------------------------- */
+.mock-dashboard.style-monochrome {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+  font-family: 'Inter', sans-serif !important;
+}
+
+.mock-dashboard.style-monochrome .mock-sidebar {
+  background-color: #000000 !important;
+  border-right: 1px solid #ffffff !important;
+}
+
+.mock-dashboard.style-monochrome .mock-logo {
+  color: #ffffff !important;
+  font-weight: 900 !important;
+}
+
+.mock-dashboard.style-monochrome .mock-nav-item {
+  color: #888888 !important;
+  border-radius: 0px !important;
+}
+
+.mock-dashboard.style-monochrome .mock-nav-item.active {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+  border-left: none !important;
+}
+
+.mock-dashboard.style-monochrome .mock-main {
+  background-color: #000000 !important;
+}
+
+.mock-dashboard.style-monochrome .mock-header {
+  background-color: #000000 !important;
+  border-bottom: 1px solid #ffffff !important;
+}
+
+.mock-dashboard.style-monochrome .mock-header-title {
+  color: #ffffff !important;
+}
+
+.mock-dashboard.style-monochrome .mock-avatar {
+  border: 1px solid #ffffff !important;
+  background-color: #000000 !important;
+}
+
+.mock-dashboard.style-monochrome .mock-banner {
+  background-color: #000000 !important;
+  border: 1px solid #ffffff !important;
+  border-radius: 0px !important;
+}
+
+.mock-dashboard.style-monochrome .mock-metric-card {
+  background-color: #000000 !important;
+  border: 1px solid #ffffff !important;
+  border-radius: 0px !important;
+}
+
+.mock-dashboard.style-monochrome .metric-lbl {
+  color: #888888 !important;
+}
+
+.mock-dashboard.style-monochrome .metric-val {
+  color: #ffffff !important;
+}
+
+.mock-dashboard.style-monochrome .mock-table-card {
+  border: 1px solid #ffffff !important;
+  background-color: #000000 !important;
+  border-radius: 0px !important;
+}
+
+.mock-dashboard.style-monochrome .mock-table-header {
+  border-bottom: 1px solid #ffffff !important;
+}
+
+.mock-dashboard.style-monochrome .mock-btn {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+  border: none !important;
+  border-radius: 0px !important;
+}
+
+.mock-dashboard.style-monochrome .mock-table-row {
+  border-bottom: 1px solid #333333 !important;
+  color: #888888 !important;
+}
+
+.mock-dashboard.style-monochrome .mock-table-row span:last-child {
+  color: #ffffff !important;
+}
+
+.mock-dashboard.style-monochrome .status-badge {
+  border: 1px solid #ffffff !important;
+  background-color: transparent !important;
+  color: #ffffff !important;
+  border-radius: 0px !important;
+}
+
+/* -------------------------------------------------------------
+   Cloned designprompts.dev IFrame Styling
+   ------------------------------------------------------------- */
+.designprompts-iframe {
+  width: 100%;
+  height: 82vh;
+  min-height: 820px;
+  border: 1px solid var(--outline-subtle);
+  border-radius: var(--radius-lg);
+  background-color: #0c0a09; /* Matches designprompts dark theme */
+  display: block;
+}
+
+
+
+
+

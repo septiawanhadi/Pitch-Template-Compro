@@ -90,7 +90,7 @@ const PROJECTS_DATA = [
 let activeFilter = 'all';
 let visibleCount = 6;
 let isPageRouting = false;
-let conceptMode = 'wireframe';
+let conceptMode = 'production';
 let terminalContactState = {
   step: 'idle',
   name: '',
@@ -197,94 +197,9 @@ function updateActiveNavHighlight() {
 // DUAL CONCEPT MODE SWITCHER LOGIC
 // -------------------------------------------------------------
 function initConceptSwitcher() {
-  const toggleBtn = document.getElementById('concept-toggle');
-  const label = document.getElementById('concept-label');
-  const telemetryVal = document.getElementById('telemetry-concept');
-
-  if (!toggleBtn) return;
-
-  function setConceptMode(mode) {
-    conceptMode = mode;
-    localStorage.setItem('conceptMode', mode);
-
-    const heroPlaceholder = document.getElementById('hero-image-placeholder');
-    const heroLabel = document.getElementById('hero-image-label');
-    const featImage1 = document.getElementById('featured-image-1');
-    const featLabel1 = document.getElementById('featured-label-1');
-    const featImage2 = document.getElementById('featured-image-2');
-    const featLabel2 = document.getElementById('featured-label-2');
-
-    if (mode === 'production') {
-      document.documentElement.classList.add('production-mode');
-      label.textContent = 'PRODUCTION';
-      if (telemetryVal) telemetryVal.textContent = 'PRODUCTION';
-      printTerminalLine('SYS_CONCEPT: Concept mode set to PRODUCTION (High-Fidelity UI);');
-
-      if (heroPlaceholder) {
-        heroPlaceholder.style.backgroundImage = "url('https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=1200&q=80')"; // Bali beach
-        heroPlaceholder.style.backgroundSize = "cover";
-        heroPlaceholder.style.backgroundPosition = "center";
-        heroPlaceholder.style.borderColor = "transparent";
-      }
-      if (heroLabel) heroLabel.style.display = 'none';
-
-      if (featImage1) {
-        featImage1.style.backgroundImage = "url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80')"; // Komodo
-        featImage1.style.backgroundSize = "cover";
-        featImage1.style.backgroundPosition = "center";
-        featImage1.style.borderColor = "transparent";
-      }
-      if (featLabel1) featLabel1.style.display = 'none';
-
-      if (featImage2) {
-        featImage2.style.backgroundImage = "url('https://images.unsplash.com/photo-1604999333679-b86d54738315?auto=format&fit=crop&w=800&q=80')"; // Bromo
-        featImage2.style.backgroundSize = "cover";
-        featImage2.style.backgroundPosition = "center";
-        featImage2.style.borderColor = "transparent";
-      }
-      if (featLabel2) featLabel2.style.display = 'none';
-
-    } else {
-      document.documentElement.classList.remove('production-mode');
-      label.textContent = 'WIREFRAME';
-      if (telemetryVal) telemetryVal.textContent = 'WIREFRAME';
-      printTerminalLine('SYS_CONCEPT: Concept mode set to WIREFRAME (Blueprint System);');
-
-      if (heroPlaceholder) {
-        heroPlaceholder.style.backgroundImage = "";
-        heroPlaceholder.style.backgroundSize = "";
-        heroPlaceholder.style.backgroundPosition = "";
-        heroPlaceholder.style.borderColor = "";
-      }
-      if (heroLabel) heroLabel.style.display = 'block';
-
-      if (featImage1) {
-        featImage1.style.backgroundImage = "";
-        featImage1.style.backgroundSize = "";
-        featImage1.style.backgroundPosition = "";
-        featImage1.style.borderColor = "";
-      }
-      if (featLabel1) featLabel1.style.display = 'block';
-
-      if (featImage2) {
-        featImage2.style.backgroundImage = "";
-        featImage2.style.backgroundSize = "";
-        featImage2.style.backgroundPosition = "";
-        featImage2.style.borderColor = "";
-      }
-      if (featLabel2) featLabel2.style.display = 'block';
-    }
-
-    renderGallery();
-  }
-
-  toggleBtn.addEventListener('click', () => {
-    const nextMode = (conceptMode === 'wireframe') ? 'production' : 'wireframe';
-    setConceptMode(nextMode);
-  });
-
-  const initialMode = localStorage.getItem('conceptMode') || 'wireframe';
-  setConceptMode(initialMode);
+  conceptMode = 'production';
+  document.documentElement.classList.add('production-mode');
+  renderGallery();
 }
 
 // -------------------------------------------------------------
@@ -417,11 +332,11 @@ function initEstimator() {
   if (!capFrontend) return;
 
   const baseRates = {
-    frontend: 150, // Penginapan
-    backend: 50,   // Transportasi
-    brand: 30,     // Pemandu Wisata
-    ai: 80,        // Dokumentasi
-    page: 25       // Biaya dasar harian per peserta (di kalkulator sebagai durasi hari / basic fee per day)
+    frontend: 1500000, // Penginapan & Hotel
+    backend: 500000,   // Transportasi
+    brand: 300000,     // Pemandu Wisata
+    ai: 800000,        // Dokumentasi
+    page: 250000       // Biaya dasar harian
   };
 
   function updateEstimate() {
@@ -429,7 +344,7 @@ function initEstimator() {
     let subtotal = 0;
 
     if (capFrontend.checked) {
-      itemsHtml += `<div class="invoice-row"><span>Penginapan & Hotel</span><span>$${baseRates.frontend.toLocaleString()}</span></div>`;
+      itemsHtml += `<div class="invoice-row"><span>Penginapan & Hotel</span><span>Rp ${baseRates.frontend.toLocaleString('id-ID')}</span></div>`;
       subtotal += baseRates.frontend;
       document.getElementById('label-cap-frontend').classList.add('checked');
     } else {
@@ -437,7 +352,7 @@ function initEstimator() {
     }
 
     if (capBackend.checked) {
-      itemsHtml += `<div class="invoice-row"><span>Transportasi & Mobil</span><span>$${baseRates.backend.toLocaleString()}</span></div>`;
+      itemsHtml += `<div class="invoice-row"><span>Transportasi & Mobil</span><span>Rp ${baseRates.backend.toLocaleString('id-ID')}</span></div>`;
       subtotal += baseRates.backend;
       document.getElementById('label-cap-backend').classList.add('checked');
     } else {
@@ -445,7 +360,7 @@ function initEstimator() {
     }
 
     if (capBrand.checked) {
-      itemsHtml += `<div class="invoice-row"><span>Pemandu Wisata Lokal</span><span>$${baseRates.brand.toLocaleString()}</span></div>`;
+      itemsHtml += `<div class="invoice-row"><span>Pemandu Wisata Lokal</span><span>Rp ${baseRates.brand.toLocaleString('id-ID')}</span></div>`;
       subtotal += baseRates.brand;
       document.getElementById('label-cap-brand').classList.add('checked');
     } else {
@@ -453,7 +368,7 @@ function initEstimator() {
     }
 
     if (capAi.checked) {
-      itemsHtml += `<div class="invoice-row"><span>Dokumentasi & Foto</span><span>$${baseRates.ai.toLocaleString()}</span></div>`;
+      itemsHtml += `<div class="invoice-row"><span>Dokumentasi & Foto</span><span>Rp ${baseRates.ai.toLocaleString('id-ID')}</span></div>`;
       subtotal += baseRates.ai;
       document.getElementById('label-cap-ai').classList.add('checked');
     } else {
@@ -463,7 +378,7 @@ function initEstimator() {
     const pages = parseInt(paramPages.value);
     const pagesCost = pages * baseRates.page;
     rangeValPages.textContent = `${pages} Hari`;
-    itemsHtml += `<div class="invoice-row"><span>Durasi Trip (${pages} Hari)</span><span>$${pagesCost.toLocaleString()}</span></div>`;
+    itemsHtml += `<div class="invoice-row"><span>Durasi Trip (${pages} Hari)</span><span>Rp ${pagesCost.toLocaleString('id-ID')}</span></div>`;
     subtotal += pagesCost;
 
     const complexityVal = parseInt(paramComplexity.value);
@@ -480,13 +395,13 @@ function initEstimator() {
 
     const total = subtotal * multiplier;
 
-    itemsHtml += `<div class="invoice-row" style="color: var(--secondary); font-size: 11px;"><span>Subtotal</span><span>$${subtotal.toLocaleString()}</span></div>`;
+    itemsHtml += `<div class="invoice-row" style="color: var(--secondary); font-size: 11px;"><span>Subtotal</span><span>Rp ${subtotal.toLocaleString('id-ID')}</span></div>`;
     if (multiplier > 1.0) {
-      itemsHtml += `<div class="invoice-row" style="color: var(--accent);"><span>Pengali Kelas Fasilitas</span><span>${multiplier}x</span></div>`;
+      itemsHtml += `<div class="invoice-row" style="color: var(--secondary);"><span>Pengali Kelas Fasilitas</span><span>${multiplier}x</span></div>`;
     }
 
     invoiceItems.innerHTML = itemsHtml;
-    invoiceTotalAmount.textContent = `$${Math.round(total).toLocaleString()}`;
+    invoiceTotalAmount.textContent = `Rp ${Math.round(total).toLocaleString('id-ID')}`;
     return { subtotal, total, pages, complexityLabel };
   }
 
@@ -521,11 +436,11 @@ function initEstimator() {
     else if (capBrand.checked) formSubject.value = 'Trip Kustom';
     else formSubject.value = 'Paket Wisata Alam'; // Fallback
 
-    const clampedBudget = Math.min(Math.max(totalCostRounded, 1000), 50000);
+    const clampedBudget = Math.min(Math.max(totalCostRounded, 1000000), 50000000);
     formBudget.value = clampedBudget;
-    formBudgetValue.textContent = `$${Math.round(clampedBudget/1000)}k`;
+    formBudgetValue.textContent = `Rp ${Math.round(clampedBudget/1000000)}jt`;
 
-    formMessage.value = `Estimasi Rencana Perjalanan Disusun:\n- Layanan Terpilih: ${servicesList.join(' + ')}\n- Durasi Wisata: ${config.pages} Hari\n- Kelas Fasilitas: ${config.complexityLabel}\n- Perkiraan Anggaran: $${totalCostRounded.toLocaleString()}`;
+    formMessage.value = `Estimasi Rencana Perjalanan Disusun:\n- Layanan Terpilih: ${servicesList.join(' + ')}\n- Durasi Wisata: ${config.pages} Hari\n- Kelas Fasilitas: ${config.complexityLabel}\n- Perkiraan Anggaran: Rp ${totalCostRounded.toLocaleString('id-ID')}`;
 
     window.location.hash = '#contact';
   });
@@ -625,29 +540,25 @@ function openProjectDrawer(projId) {
   const proj = PROJECTS_DATA.find(p => p.id === projId);
   if (!proj) return;
 
-  const isProduction = document.documentElement.classList.contains('production-mode');
   const drawerImage = document.getElementById('drawer-image-placeholder');
-  const drawerImageLabel = document.getElementById('drawer-image-label');
 
-  const projectIdEl = document.getElementById('drawer-project-id');
-  if (projectIdEl) projectIdEl.textContent = proj.id;
   document.getElementById('drawer-title').textContent = proj.title;
-  document.getElementById('drawer-category').textContent = `Kategori: ${proj.category}`;
-  document.getElementById('drawer-image-label').textContent = isProduction ? proj.title.toUpperCase() : proj.label;
+  
+  const coordsEl = document.getElementById('drawer-location-coords');
+  if (coordsEl) {
+    coordsEl.textContent = `${proj.tech[0]} (${proj.dim})`;
+  }
+  
   document.getElementById('drawer-desc').textContent = proj.desc;
   
-  if (isProduction && proj.image) {
+  if (drawerImage && proj.image) {
     drawerImage.style.background = `url('${proj.image}') center/cover no-repeat`;
     drawerImage.style.borderColor = 'transparent';
-    if (drawerImageLabel) drawerImageLabel.style.display = 'none';
-  } else {
-    drawerImage.style.background = '';
-    drawerImage.style.borderColor = '';
-    if (drawerImageLabel) drawerImageLabel.style.display = 'block';
   }
 
   const stackContainer = document.getElementById('drawer-stack');
-  stackContainer.innerHTML = proj.tech.map(t => `<span class="tech-tag">${t}</span>`).join('');
+  // Display only activities/tags, skipping the first element (province)
+  stackContainer.innerHTML = proj.tech.slice(1).map(t => `<span class="tech-tag">${t}</span>`).join('');
 
   document.getElementById('side-drawer').classList.add('active');
   document.getElementById('drawer-backdrop').classList.add('active');
@@ -656,6 +567,7 @@ function openProjectDrawer(projId) {
 function initDrawer() {
   const closeBtn = document.getElementById('drawer-close');
   const backdrop = document.getElementById('drawer-backdrop');
+  const inquireBtn = document.getElementById('btn-inquire-drawer');
 
   if (!closeBtn) return;
 
@@ -666,6 +578,9 @@ function initDrawer() {
 
   closeBtn.addEventListener('click', close);
   backdrop.addEventListener('click', close);
+  if (inquireBtn) {
+    inquireBtn.addEventListener('click', close);
+  }
 }
 
 window.openProjectDrawer = openProjectDrawer;
@@ -682,9 +597,7 @@ function initContactForm() {
 
   budgetSlider.addEventListener('input', () => {
     const val = parseInt(budgetSlider.value);
-    if (val >= 1000) {
-      budgetValue.textContent = `$${Math.round(val / 1000)}k`;
-    }
+    budgetValue.textContent = `Rp ${Math.round(val / 1000000)}jt`;
   });
 
   submitBtn.addEventListener('click', () => {
@@ -763,6 +676,194 @@ function initPromoPopup() {
 }
 
 // -------------------------------------------------------------
+// DESTINASI PILIHAN CAROUSEL
+// -------------------------------------------------------------
+function initCarousel() {
+  const prevBtn = document.getElementById('carousel-prev');
+  const nextBtn = document.getElementById('carousel-next');
+  const track = document.getElementById('carousel-track');
+  const indicators = document.querySelectorAll('.carousel-indicator');
+  
+  if (!track) return;
+  
+  let currentSlide = 0;
+  const slideCount = document.querySelectorAll('.carousel-slide').length;
+  
+  function updateCarousel(index) {
+    currentSlide = (index + slideCount) % slideCount;
+    track.style.transform = `translateX(-${currentSlide * 100}%)`;
+    
+    indicators.forEach((ind, i) => {
+      if (i === currentSlide) {
+        ind.classList.add('active');
+      } else {
+        ind.classList.remove('active');
+      }
+    });
+  }
+  
+  if (prevBtn) {
+    prevBtn.addEventListener('click', () => {
+      updateCarousel(currentSlide - 1);
+    });
+  }
+  
+  if (nextBtn) {
+    nextBtn.addEventListener('click', () => {
+      updateCarousel(currentSlide + 1);
+    });
+  }
+  
+  indicators.forEach((ind, i) => {
+    ind.addEventListener('click', () => {
+      updateCarousel(i);
+    });
+  });
+}
+
+// -------------------------------------------------------------
+// DYNAMIC CANVAS RAIN SIMULATION
+// -------------------------------------------------------------
+function initRainEffect() {
+  const canvas = document.getElementById('hero-rain-canvas');
+  if (!canvas) return;
+
+  const ctx = canvas.getContext('2d');
+  let animationId;
+  
+  function resizeCanvas() {
+    const rect = canvas.parentElement.getBoundingClientRect();
+    canvas.width = rect.width;
+    canvas.height = rect.height;
+  }
+  
+  resizeCanvas();
+  window.addEventListener('resize', resizeCanvas);
+  
+  const particles = [];
+  const maxParticles = 100;
+  const splashes = [];
+  
+  class RainDrop {
+    constructor() {
+      this.reset();
+      this.y = Math.random() * canvas.height;
+    }
+    
+    reset() {
+      this.x = Math.random() * canvas.width;
+      this.y = -20;
+      this.length = Math.random() * 15 + 10;
+      this.speed = Math.random() * 8 + 6;
+      this.weight = Math.random() * 1 + 0.5;
+      this.opacity = Math.random() * 0.4 + 0.15;
+    }
+    
+    update() {
+      this.y += this.speed;
+      this.x += 0.5; // Wind angle
+      
+      if (this.y > canvas.height) {
+        createSplash(this.x, canvas.height);
+        this.reset();
+      }
+    }
+    
+    draw() {
+      const isDark = document.documentElement.classList.contains('dark');
+      const isProduction = document.documentElement.classList.contains('production-mode');
+      
+      let color;
+      if (!isProduction) {
+        // Wireframe / Blueprint mode: mono rain lines
+        color = isDark ? `rgba(255, 255, 255, ${this.opacity})` : `rgba(0, 0, 0, ${this.opacity * 0.8})`;
+      } else {
+        // High-Fidelity / Production mode: glowing natural cyan/blue rain
+        color = isDark ? `rgba(165, 243, 252, ${this.opacity * 1.2})` : `rgba(14, 165, 233, ${this.opacity})`;
+      }
+      
+      ctx.beginPath();
+      ctx.strokeStyle = color;
+      ctx.lineWidth = this.weight;
+      ctx.lineCap = 'round';
+      ctx.moveTo(this.x, this.y);
+      ctx.lineTo(this.x + 1, this.y + this.length);
+      ctx.stroke();
+    }
+  }
+  
+  class Splash {
+    constructor(x, y) {
+      this.x = x;
+      this.y = y;
+      this.vx = Math.random() * 4 - 2;
+      this.vy = Math.random() * -3 - 1;
+      this.radius = Math.random() * 1.5 + 0.5;
+      this.opacity = 0.8;
+      this.gravity = 0.15;
+    }
+    
+    update() {
+      this.x += this.vx;
+      this.y += this.vy;
+      this.vy += this.gravity;
+      this.opacity -= 0.05;
+    }
+    
+    draw() {
+      const isDark = document.documentElement.classList.contains('dark');
+      const isProduction = document.documentElement.classList.contains('production-mode');
+      
+      let color;
+      if (!isProduction) {
+        color = isDark ? `rgba(255, 255, 255, ${this.opacity})` : `rgba(0, 0, 0, ${this.opacity})`;
+      } else {
+        color = isDark ? `rgba(165, 243, 252, ${this.opacity})` : `rgba(14, 165, 233, ${this.opacity})`;
+      }
+      
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+      ctx.fillStyle = color;
+      ctx.fill();
+    }
+  }
+  
+  function createSplash(x, y) {
+    const count = Math.floor(Math.random() * 3) + 2;
+    for (let i = 0; i < count; i++) {
+      splashes.push(new Splash(x, y));
+    }
+  }
+  
+  for (let i = 0; i < maxParticles; i++) {
+    particles.push(new RainDrop());
+  }
+  
+  function animate() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    
+    particles.forEach(p => {
+      p.update();
+      p.draw();
+    });
+    
+    for (let i = splashes.length - 1; i >= 0; i--) {
+      const s = splashes[i];
+      s.update();
+      s.draw();
+      
+      if (s.opacity <= 0) {
+        splashes.splice(i, 1);
+      }
+    }
+    
+    animationId = requestAnimationFrame(animate);
+  }
+  
+  animate();
+}
+
+// -------------------------------------------------------------
 // MODULE INITS
 // -------------------------------------------------------------
 document.addEventListener('DOMContentLoaded', () => {
@@ -777,6 +878,8 @@ document.addEventListener('DOMContentLoaded', () => {
   initMobileDrawer(); // Initialize slide-out mobile drawer listeners
   initPromptExplorer();
   initPromoPopup();
+  initCarousel();
+  initRainEffect();
   
   console.log("DRIPCODE: Core rendering sequence initiated.");
   console.log("MODE: Multi-view Routing Wireframe System (Travel Edition).");
